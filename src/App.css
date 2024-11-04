@@ -1,38 +1,426 @@
-.App {
+.navbar {
+  display: flex;
+  /* background-color:#8f8e8e; */
+  background-color: brown;
+  width: 100%;
+  height: 60px;
+  margin-top: 0px;
+  position: fixed;
+  left: 0px;
+  list-style: none;
+  padding: 0px;
+  align-items: center;
+  z-index: 1;
+
+
+}
+
+.navbar>li {
+  display: inline-block;
+  padding-left: 30px;
+ 
+
+}
+
+.link {
+
+  text-decoration: none;
+color: white;
+font-size: small;
+/* font-weight: bold; */
+
+display: inline-block;
+text-align: center;
+align-content: center;
+height: 60px;
+width: max-content;
+padding-left: 5px;
+padding-right: 5px;
+
+}
+
+.link:hover{
+
+background-color:rgb(218, 75, 75);
+}
+
+.linkdesc {
+
+  position: absolute;
+  left: 0px;
+  margin-top: 60px;
+  display: inline-block;
+}
+
+.footer{
+
+  display: block;
+  position: relative;
+  /* bottom:-80px; */
+  width: 100%;
+  text-align: center;
+  height: 150px;
+  background-color:rgb(212, 138, 163);
+  color:black;
+  top: 500px;
+
+
+}
+
+.sign {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 400px;
+  background-color: darkgoldenrod;
+  left: calc(50% - 200px);
+  top: 100px;
+  align-items: center;
+
+}
+#signupb{
+
+  position: relative;
+  left: 1200px;
+  /* background-color: blue; */
+}
+
+.sign>h1{
+  position: absolute;
+top:-26px;
+/* color: white; */
+
+
+}
+
+.inputbox {
+  display: flex;
+  top: 50px;
+  position: relative;
+  margin-top: 20px;
+  width: 250px;
+  height: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#signsubmit {
+  position: relative;
+  top: 80px;
+  left: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.logindiv{
+  background-color:lightblue;
+  display: flex;
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 20px;
+ justify-content: center;
+ color:black;
+
+ box-shadow: 0px 0px 5px 5px gray;
+}
+.logheadign{
+ 
+  position: absolute;
+  top: 10px;
+
+
+}
+.loginh1 {
+
+  position: absolute;
+  top: 100px; /* First element */
+  width: 250px;
+  text-align: center;
+
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.loginh2 { /* Add another class for the second element */
+  
+  position: absolute;
+  top: 150px; /* Adjust to avoid overlap */
+  width: 250px;
+  text-align: center;
+ 
+  
+
+
+}
+
+.loginbutton{
+
+  display: flex;
+  position: absolute;
+  top: 230px;
+  width: 250px;
+  justify-content: center;    /*Center text horizontally*/
+  align-items: center;        /* Center text vertically */
+  background-color:rgb(52, 52, 199);
+  outline: none;
+  border: none;
+  height: 30px;
+  color: white;
+ 
+  
+
+}
+
+#logoutnav{
+
+  position: relative;
+  left: 850px;
+
+}
+#logoutnav:hover{
+
+background-color: rgb(255, 0, 0);
+
+}
+
+.productcomp{
+
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  top: 100px;
+  left: 400px;
+  row-gap: 30px;
+  /* border: 2px solid black; */
+  width: 500px;
+  align-items: center;
+  height: max-content;
+  
+  color: brown;
+
+  background-color: white;
+  box-shadow: 0 0 5px 2px;
+
+  padding-bottom: 30px;
+
+
+}
+
+.productinput{
+
+  display: flex;
+  position: relative;
+  width: 300px;
+  text-align: center;
+  height: 20px;
+  color: brown;
+  outline: none;
+  border-color: brown;
+
+ 
+
+
+}
+
+.addproductbutton{
+
+  display: flex;
+  position: relative;
+  top: 10px;
+  right: 110px;
+  color:white;
+  background-color: rgb(179, 23, 23);
+
+  border: none;
+  height: 30px;
+
+align-items: center;
+
+}
+
+.producth{
+
+  display: block;
+  position: relative;
+  right: 100px;
+  top: 10px;
+  color: brown;
+  
+}
+
+
+
+.productinput::placeholder {
+  color: brown; /* Set the placeholder color to brown */
+  opacity: 1; /* Make sure the opacity is set to 1 for full visibility */
+}
+
+.invalidinput{
+
+  display: block;
+  position: relative;
+  font-size: small;
+  width: max-content;
+  top: -25px;
+  right: 105px;
+  color: red;
+  height: 0px;
+}
+
+
+
+.product-table{
+
+  position: relative;
+  display: flex;
+  /* border: 2px solid red; */
+  top: 100px;
+  height:max-content;
+  width: 1300px;
+  left: 15px;
+  /* margin-top: 0px; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* row-gap: -60px; */
+  box-shadow: 0px 0px 5px 5px brown;
+ 
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  
+
+}
+.trows{
+
+  position: relative;
+  display: inline-block;
+  border: 2px solid black;
+  width: 200px;
+  right: 40px;
+  text-align: center;
+  top: 0px;
+  border-right: none;
+  border-top: none;
+  background-color:beige;
+
+ 
+
+}
+
+.trows1{
+
+  position: relative;
+  display: inline-block;
+  border: 2px solid black;
+  width: 200px;
+  right: 40px;
+  text-align: center;
+  top: 0px;
+  border-right: none;
+  height: 40px;
+  font-weight: bold;
+
+  color: black;
+
+  background-color: rgb(78, 203, 219);
+ 
+ 
+ align-content: center;
+ font-size: large;
+
+}
+
+.product-list{
+
+  position: relative;
+  display: flex;
+  /* border: 2px solid blue; */
+ 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  left: 20px;
+  
+
+}
+
+#company-cell{
+  border-right: 2px solid black;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#last-cell{
+
+  border-right: 2px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+.delete{
+
+  
+
+background-color: gray;
+height: 20px;
+border: none;
+height: auto;
+color: whitesmoke;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.update-comp{
+
+  display: flex;
+  position: relative;
+  border: 2px solid black;
+  top: 70px;
 }
+
+#update-button{
+
+  position: relative;
+  display: flex;
+  
+  left: 5px;
+ 
+  font-size: 13px;
+  bottom: 2px;
+}
+
+#search-box{
+
+  display: flex;
+  position: relative;
+  bottom: 2px;
+  width: 500px;
+height: 25px;
+
+text-align: center;
+border: 2px solid black;
+border-radius: 10px;
+background-color: beige;
+
+}
+
+#search-icon{
+
+  display: flex;
+  position: relative;
+  bottom: 25px;
+  left: 230px;
+
+}
+
+#account-link{
+
+  position: relative;
+  top: 100px;
+  list-style: none;
+  text-decoration: none;
+}
+
+
