@@ -21,10 +21,4 @@ This E-Commerce project is built using the MEARN stack (MongoDB, Express.js, Rea
 - **React.js**: A front-end JavaScript library for building user interfaces, allowing for a dynamic and responsive experience.
 - **Node.js**: A JavaScript runtime that enables server-side programming and handles API requests.
 
-## Installation
 
-To get started with the project, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/repository-name.git
