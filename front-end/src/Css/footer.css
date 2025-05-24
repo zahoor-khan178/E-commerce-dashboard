@@ -1,0 +1,18 @@
+
+.footer{
+
+    display: inline-block;
+    /* position: absolute; */
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: 150px;
+    background-color:rgb(212, 138, 163);
+    color:black;
+    /* top: 550px; */
+    top:150px;
+    z-index: 1;
+    
+  
+  
+  }

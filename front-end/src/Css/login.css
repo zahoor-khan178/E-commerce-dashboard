@@ -1,0 +1,69 @@
+
+
+.logindiv{
+    background-color:lightblue;
+    display: flex;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 20px;
+   justify-content: center;
+   color:black;
+  
+   box-shadow: 0px 0px 5px 5px gray;
+  }
+  .logheadign{
+   
+    position: absolute;
+    top: 10px;
+  
+  
+  }
+  .loginh1 {
+  
+    position: absolute;
+    top: 110px; /* First element */
+    width: 250px;
+    text-align: center;
+    height: 25px;
+    border-radius: 5px;
+  
+  
+  }
+  
+  
+  .loginh2 { /* Add another class for the second element */
+    
+    position: absolute;
+    top: 160px; /* Adjust to avoid overlap */
+    width: 250px;
+    text-align: center;
+    height: 25px;
+    border-radius: 5px;
+    
+  
+  
+  }
+  
+  .loginbutton{
+  
+    display: flex;
+    position: absolute;
+    top: 230px;
+    width: 250px;
+    justify-content: center;    /*Center text horizontally*/
+    align-items: center;        /* Center text vertically */
+    background-color:rgb(52, 52, 199);
+    outline: none;
+    border: none;
+    height: 30px;
+    color: white;
+   
+    
+  
+  }
