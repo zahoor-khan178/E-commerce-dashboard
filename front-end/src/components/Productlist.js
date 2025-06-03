@@ -1,166 +1,139 @@
-
-import React from 'react'
-
-import { useEffect, useState } from 'react'
-
-import {  Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Productlist = () => {
-
-    // const navigate = useNavigate();
-
-    const [product, setproduct] = useState([]);
-    const [key,setkey]=useState('');
-    const [loading, setloading]=useState(true);
+    const [products, setProducts] = useState([]);
+    const [searchKey, setSearchKey] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        getProducts();
+    }, []);
 
-        getproduct();
-        
-
-    },[])
-
-
-    const getproduct = async () => {
-
-        let result = await fetch("http://localhost:9000/product")
-        result = await result.json()
-        setproduct(result)
-        setloading(false);
-    }
-
-    const deletdata = async (id) => {
-
-        let result = await fetch(`http://localhost:9000/delete/${id}`,
-            {
-                method: 'Delete'
+    const getProducts = async () => {
+        setLoading(true); // Set loading before starting fetch
+        try {
+            let result = await fetch("http://localhost:9000/product");
+            if (!result.ok) {
+                throw new Error(`HTTP error! status: ${result.status}`);
             }
-        )
-        result = await result.json();
-        if (result) {
-            getproduct();
-            alert('record is deleted.')
+            result = await result.json();
+            setProducts(result);
+        } catch (error) {
+            console.error("Failed to fetch products:", error);
+            setProducts([]); // Ensure products array is empty on error
+        } finally {
+            setLoading(false); // Always set loading to false when done
         }
-    }
+    };
 
-    
-
-
-
-    const handleproduct = async (event) => {
-
-         const searchkey=event.target.value;
-         setkey(searchkey);
-         if(!searchkey){
-
-            getproduct();
-
-
-      
-         }
-
-         else{
-
-            let result = await fetch(`http://localhost:9000/search/${key}`,
-                {
-    
-                method:"get"
-                }
-            )
-            result = await result.json()
-            if (result) {
-    
-              
-    
-                setproduct(result)
+    const deleteData = async (id) => {
+        try {
+            let result = await fetch(`http://localhost:9000/delete/${id}`, {
+                method: 'DELETE'
+            });
+            if (!result.ok) {
+                throw new Error(`HTTP error! status: ${result.status}`);
             }
-         }
+            result = await result.json();
+            if (result) {
+                getProducts();
+                alert('Record is deleted.');
+            }
+        } catch (error) {
+            console.error("Failed to delete product:", error);
+            alert('Failed to delete record.');
+        }
+    };
 
-       
-         if(loading)
-         {
-            return(
+    const handleSearch = async (event) => {
+        const key = event.target.value;
+        setSearchKey(key);
 
-                <li>Loading...</li>
-            )
-         }
+        if (!key.trim()) { // Use .trim() to handle whitespace
+            getProducts(); // Fetch all products if search key is empty
+        } else {
+            setLoading(true); // Set loading while searching
+            try {
+                let result = await fetch(`http://localhost:9000/search/${key}`, {
+                    method: "GET"
+                });
+                if (!result.ok) {
+                    throw new Error(`HTTP error! status: ${result.status}`);
+                }
+                result = await result.json();
+                setProducts(result);
+            } catch (error) {
+                console.error("Failed to search products:", error);
+                setProducts([]); // Clear products on search error
+            } finally {
+                setLoading(false); // Always set loading to false when done
+            }
+        }
+    };
 
-
-
-    }
-
+    // REMOVE THIS BLOCK - It's causing the input to unmount/remount
+    // if (loading) {
+    //     return <div className="loading-message">Loading products...</div>;
+    // }
 
     return (
-
-
-
-
-
-        <>
-            <div className="product-table">
-
-
-        
-
-
-
-                <input type="text" name="" id="search-box" placeholder='search product' 
-                 onChange={handleproduct} value={key}/><i class="fa-solid fa-magnifying-glass" id='search-icon'></i>
-
-                <ul className="product-list">
-                    <li className="trows1"  >S.No</li>
-                    <li className="trows1" >Name</li>
-                    <li className="trows1" >price</li>
-                    <li className="trows1" >Category</li>
-                    <li className="trows1"  >Company</li>
-                    <li className="trows1" id='last-cell' >operation</li>
-
-
-
-                </ul>
-
-
-
-
-
-                {product.length > 0 ? product.map((product, index) =>
-
-
-                    <ul className="product-list">
-
-
-                        <li className="trows">{index + 1}</li>
-                        <li className="trows">{product.name}</li>
-                        <li className="trows">{product.price}</li>
-                        <li className="trows">{product.category}</li>
-                        <li className="trows" >{product.company}</li>
-                        <li className="trows" id='company-cell'><button type='button' className='delete' onClick={() => deletdata(product._id)} >delete</button ><Link to={"/up/" + product._id} id='update-button'>update</Link></li>
-
-
-                        {/* <button type='button' id='update-button' onClick={() => { updatedata(product._id) }}>update</button> */}
-
-
-
-                    </ul>
-
-                ) : ' '
-                }
-
-
-
-
+        <div className="product-table">
+            <div className="search-container">
+                <input
+                    type="text"
+                    id="search-box"
+                    placeholder='search product'
+                    onChange={handleSearch}
+                    value={searchKey}
+                />
             </div>
-        </>
 
-
-
-
-    )
-}
-
-
+            <table className="product-list">
+                <thead>
+                    <tr className="table-header-row">
+                        <th className="th-cell">S.No</th>
+                        <th className="th-cell">Name</th>
+                        <th className="th-cell">Price</th>
+                        <th className="th-cell">Category</th>
+                        <th className="th-cell">Company</th>
+                        <th className="th-cell">Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* --- START OF CHANGES TO FIX FOCUS ISSUE --- */}
+                    {loading ? (
+                        <tr>
+                            <td colSpan="6" className="loading-message">Loading products...</td>
+                        </tr>
+                    ) : (
+                        products.length > 0 ? (
+                            products.map((product, index) => (
+                                <tr className="table-row" key={product._id || index}>
+                                    <td className="td-cell">{index + 1}</td>
+                                    <td className="td-cell">{product.name}</td>
+                                    <td className="td-cell">{product.price}</td>
+                                    <td className="td-cell">{product.category}</td>
+                                    <td className="td-cell">{product.company}</td>
+                                    <td className="td-cell button-cell">
+                                        <button type='button' className='delete' onClick={() => deleteData(product._id)}>Delete</button>
+                                        <Link to={`/up/${product._id}`} className='update-button-style'>Update</Link>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6" className="no-products-message">No products found.</td>
+                            </tr>
+                        )
+                    )}
+                    
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
 export default Productlist;
-
-
-

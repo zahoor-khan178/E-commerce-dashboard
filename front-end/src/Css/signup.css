@@ -1,54 +1,123 @@
+/* General Body Styles (optional, for overall page look) */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
 
+/* Signup Container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    min-height: 100vh; /* Ensures it takes full height of the page */
+    /* padding: 20px; */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
 
-.sign {
-    position: absolute;
+/* Signup Form Styling */
+.signup-form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 40px;
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Modern, softer shadow */
+    width: fit-content;
+    max-width: 400px; /* Max width for larger screens */
     display: flex;
     flex-direction: column;
-    height: 400px;
-    width: 400px;
-    background-color: darkgoldenrod;
-    
-    left: calc(50% - 200px);
-    top: 100px;
-    align-items: center;
-    /* padding-top: 30px; */
-    color: white;
-    box-shadow: 0 0 5px 10px  rgb(238, 191, 72);
-  
-  }
-  #signupb{
-  
-    position: relative;
-    left: 1200px;
-    /* background-color: blue; */
-  }
-  
-  .sign>h1{
-    position: absolute;
-  top:-26px;
-  /* color: white; */
-  
-  
-  }
-  
-  .inputbox {
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Space between elements */
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover/focus */
+}
+
+.signup-form:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.signup-form h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2em; /* Larger heading */
+    font-weight: 600;
+}
+
+/* Form Group for Label and Input */
+.form-group {
+    width: 100%;
     display: flex;
-    top: 50px;
-    position: relative;
-    margin-top: 20px;
-    width: 260px;
-    height: 25px;
+    flex-direction: column;
+    gap: 8px; /* Space between label and input */
+}
+
+.form-group label {
+  color: #555;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+/* Input Fields */
+.form-input {
+    width: 100%; /* Take full width of its parent */
+    padding: 12px 0;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded input fields */
+    font-size: 1em;
+    color: #333;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    background-color: rgb(245, 225, 175);
-  }
-  
-  #signsubmit {
-    position: relative;
-    top: 100px;
-    left: 100px;
-    width: 70px;
-    height: 25px;
-    background-color:rgb(252, 182, 5) ;
-    border-radius: 3px;
+}
+
+.form-input::placeholder {
+    color: #aaa;
+}
+
+.form-input:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Soft focus shadow */
+}
+
+/* Signup Button */
+.signup-button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff; /* Primary blue color */
+    color: white;
     border: none;
-  }
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Space above button */
+}
+
+.signup-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.signup-button:active {
+    background-color: #004085; /* Even darker on click */
+    transform: translateY(0); /* Reset lift on click */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .signup-form {
+        padding: 30px 25px; /* Adjust padding for smaller screens */
+        margin: 20px; /* Add some margin on very small screens */
+    }
+    .signup-form h2 {
+        font-size: 1.8em;
+    }
+    .form-input, .signup-button {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+}

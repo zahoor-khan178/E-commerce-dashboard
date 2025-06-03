@@ -1,150 +1,59 @@
-
-
 .product-table{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+background-color: white;
+padding: 2vw;
+  box-shadow: 0 0 5px 2px brown;
+  row-gap: 2px;
+}
 
-    position: relative;
-    display: flex;
-    /* border: 2px solid red; */
-    top: 100px;
-    height:max-content;
-    width: fit-content;
-    left: 5px;
-    /* margin-top: 0px; */
-    flex-direction: column;
-    flex-wrap: wrap;
-    /* row-gap: -60px; */
-    box-shadow: 0px 0px 5px 5px brown;
-   
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    padding-left: 0;
-    
+.product-list{
+  border-collapse: collapse; 
+}
+
+.table-header-row{
   
-  }
-  .trows{
+  background-color: rgb(57, 57, 214);
+  background-color: brown;
+  color: white;
+ 
+}
+
+.th-cell{
+ border: 1px solid black;
+  width: 10vw;
+  padding: 1vw 0;
+}
+
+#search-box{
+  width: 30vw;
+  height: 5vh;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 10px;
+  margin-right: 10px;
+  color: brown;
+}
+
+.table-row{
+
+  /* background-color: red; */
   
-    position: relative;
-    display: inline-block;
-    border: 2px solid black;
-    width: 200px;
-    right: 40px;
-    text-align: center;
-    top: 0px;
-    border-right: none;
-    border-top: none;
-    background-color:beige;
-  
-   
-  
-  }
-  
-  .trows1{
-  
-    position: relative;
-    display: inline-block;
-    border: 2px solid black;
-    width: 200px;
-    right: 40px;
-    text-align: center;
-    top: 0px;
-    border-right: none;
-    height: 40px;
-    font-weight: bold;
-  
-    color: black;
-  
-    background-color: rgb(78, 203, 219);
-   
-   
-   align-content: center;
-   font-size: large;
-  
-  }
-  
-  .product-list{
-  
-    position: relative;
-    display: flex;
-    /* border: 2px solid blue; */
-   
-    margin-top: 0px;
-    margin-bottom: 0px;
-    left: 20px;
-    
-  
-  }
-  
-  #company-cell{
-    border-right: 2px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #last-cell{
-  
-    border-right: 2px solid black;
-  }
-  
-  .delete{
-  
-    
-  
-  background-color: gray;
-  height: 20px;
-  border: none;
-  height: auto;
-  color: whitesmoke;
-  
-  }
-  
-  .update-comp{
-  
-    display: flex;
-    position: relative;
-    border: 2px solid black;
-    top: 70px;
-  }
-  
-  #update-button{
-  
-    position: relative;
-    display: flex;
-    
-    left: 5px;
-   
-    font-size: 13px;
-    bottom: 2px;
-  }
-  
-  #search-box{
-  
-    display: flex;
-    position: relative;
-    bottom: 2px;
-    width: 500px;
-  height: 25px;
-  
+}
+
+.td-cell{
+   border: 1px solid black;
+  width: 10vw;
+  padding: 1vw 0;
   text-align: center;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: beige;
-  
-  }
-  
-  #search-icon{
-  
-    display: flex;
-    position: relative;
-    bottom: 25px;
-    left: 230px;
-  
-  }
-  
-  #account-link{
-  
-    position: relative;
-    top: 100px;
-    list-style: none;
-    text-decoration: none;
-  }
+}
+
+.delete{
+
+  background-color: brown;
+  color: white;
+  border: none;
+  padding: 0.3vw;
+  border-radius: 2px;
+}
