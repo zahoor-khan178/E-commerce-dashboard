@@ -25,7 +25,7 @@ body {
     background-color: #ffffff; /* White background for the form */
     padding: 40px;
     border-radius: 12px; /* Softer rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Modern, softer shadow */
+    box-shadow: 0  0 10px 2px brown; /* Modern, softer shadow */
     width: fit-content;
     max-width: 400px; /* Max width for larger screens */
     display: flex;

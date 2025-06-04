@@ -6,36 +6,36 @@ const Login = () => {
     const [password, setpassword] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const auth_data = localStorage.getItem('user');
-        const loginuser = localStorage.getItem('loginuser');
+    // useEffect(() => {
+    //     const auth_data = localStorage.getItem('user');
+    //     const loginuser = localStorage.getItem('loginuser');
 
         
 
       
-        if (auth_data) {
+    //     if (auth_data) {
 
-            if (loginuser) {
-                navigate('/'); 
+    //         if (loginuser) {
+    //             navigate('/'); 
             
-            }
-            else{
+    //         }
+    //         else{
 
-                navigate('/login');
-            }
+    //             navigate('/login');
+    //         }
     
           
-        } 
+    //     } 
 
 
-        else{
+    //     else{
 
-            navigate('/sign')
-        }
+    //         navigate('/sign')
+    //     }
         
 
         
-    }, [navigate]);
+    // }, [navigate]);
 
     const change = (event) => {
         setemail(event.target.value);
@@ -71,7 +71,7 @@ const Login = () => {
 
            
             if (result && result.email) { 
-                localStorage.setItem('loginuser', JSON.stringify(result));
+                localStorage.setItem('user', JSON.stringify(result));
                 navigate('/'); 
             } else {
                 console.log('Invalid login:', result);

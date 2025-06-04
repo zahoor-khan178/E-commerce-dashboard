@@ -9,12 +9,12 @@ const Signup = () => {
     const navigate = useNavigate();
 
     // Check for authenticated user on component mount
-    useEffect(() => {
-        const auth_data = localStorage.getItem('loginuser');
-        if (auth_data) {
-            navigate('/');
-        }
-    }, [navigate]); // Added navigate to dependency array for best practice
+    // useEffect(() => {
+    //     const auth_data = localStorage.getItem('loginuser');
+    //     if (auth_data) {
+    //         navigate('/');
+    //     }
+    // }, [navigate]); 
 
     const handleNameChange = (event) => { // Renamed for clarity
         setName(event.target.value);

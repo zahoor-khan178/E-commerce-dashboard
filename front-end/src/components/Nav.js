@@ -12,7 +12,7 @@ const Nav = () => {
 
     const logout = () => {
 
-        localStorage.removeItem('loginuser');
+        localStorage.removeItem('user');
      
     }
 

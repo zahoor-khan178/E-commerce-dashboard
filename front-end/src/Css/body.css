@@ -23,12 +23,11 @@ body {
  
   width: 100%; /* Ensure it spans the full width of its grid area */
   min-height: 70vh;
-  display: flex; /* Keep flex for inner content alignment */
+  display: flex; 
   flex-direction: column; /* Stack content vertically within maindiv */
   align-items: center; /* Center content horizontally within maindiv */
   justify-content: center; /* Align content to the top within maindiv */
-  /* background-color: rgb(243, 247, 243);  */
-  /* padding: 20px; */
-  /* Removed padding-top here because the fixed navbar now handles this via position */
+  /* background-color: green; */
   overflow-y: auto; /* Add scrollbar if content exceeds main area height */
+  padding-top: 4vh ;
 }

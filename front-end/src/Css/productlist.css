@@ -4,8 +4,11 @@ flex-direction: column;
 justify-content: flex-start;
 background-color: white;
 padding: 2vw;
+
   box-shadow: 0 0 5px 2px brown;
   row-gap: 2px;
+ 
+ 
 }
 
 .product-list{
@@ -33,6 +36,10 @@ padding: 2vw;
   border: 1px solid black;
   padding-left: 10px;
   margin-right: 10px;
+  color: brown;
+}
+::placeholder{
+
   color: brown;
 }
 
