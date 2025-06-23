@@ -1,3 +1,5 @@
+// import '../Css/nav.css';
+import '../Css/nav.query.css';
 
 
 
@@ -21,11 +23,11 @@ const Nav = () => {
 
     return (
 
-        <div>
+        <div id='nav-div'>
+              {/* <h6>E-commerce dashboard</h6> */}
             <ul className='navbar'>
 
            
-
 
                 <li><Link to="/" className='link'>Home</Link></li>
                 <li><Link to="/pl" className='link'>Products</Link></li>

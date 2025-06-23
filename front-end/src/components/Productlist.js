@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react';
+// import '../Css/productlist.css';
+import '../Css/productlist.query.css';
+
+
+import  { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -99,7 +103,7 @@ const Productlist = () => {
                         <th className="th-cell">Price</th>
                         <th className="th-cell">Category</th>
                         <th className="th-cell">Company</th>
-                        <th className="th-cell">Operation</th>
+                        <th className="th-cell">Operations</th>
                     </tr>
                 </thead>
                 <tbody>

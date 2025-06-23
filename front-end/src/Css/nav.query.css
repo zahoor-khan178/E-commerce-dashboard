@@ -1,0 +1,218 @@
+
+
+
+#nav-div
+{
+     background-color: brown;
+     width: 100%;
+     height: 10vh;
+
+
+}
+
+
+
+/* .navbar {
+  display: flex;
+
+
+} */
+.navbar > li {
+  display: inline-block;
+ 
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-size: small;
+
+}
+
+/* .link:hover {
+  background-color: rgb(218, 75, 75);
+} */
+
+.linkdesc {
+ 
+  /* position: absolute;
+  left: 0px;
+  margin-top: 60px;
+  display: inline-block; */
+}
+
+#logoutnav {
+  /* top: 0;
+  position: absolute;
+  align-content: center;
+right: 15vw;
+
+height: 100%; */
+}
+
+/* #logoutnav:hover {
+  background-color: rgb(255, 0, 0);
+} */
+
+
+@media screen and (min-width:1441px){
+
+    #nav-div{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #nav-div>h6{
+        color: white;
+    }
+
+    .navbar{
+        /* display: none; */
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+         /* background-color: green; */
+         width: 100%;
+         gap: 5vw;
+         font-size: 0.4vw;
+         padding-left: 2vw;
+         background-color: brown;
+
+    }
+
+    .link{
+
+         font-size: 1vw;
+         /* padding: 0.5vw 0; */
+         /* height: 100%; */
+
+    }
+
+    #logoutnav{
+
+        position: absolute;
+        right: 2vw;
+    }
+
+}
+@media screen and (max-width:1440px){
+
+       #nav-div{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #nav-div>h6{
+        color: white;
+    }
+
+    .navbar{
+        /* display: none; */
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+         /* background-color: green; */
+         width: 100%;
+         gap: 5vw;
+         font-size: 0.4vw;
+         padding-left: 2vw;
+         background-color: brown;
+
+    }
+
+    .link{
+
+         font-size: 1.5vw;
+
+    }
+
+    #logoutnav{
+
+        position: absolute;
+        right: 2vw;
+    }
+
+}
+@media screen and (max-width:450px)
+{
+
+    #nav-div{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #nav-div>h6{
+        color: white;
+    }
+
+    .navbar{
+        /* display: none; */
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+         /* background-color: green; */
+         width: 100%;
+         gap: 5vw;
+         font-size: 0.4vw;
+         padding-left: 2vw;
+         background-color: brown;
+
+    }
+
+    .link{
+
+         font-size: 3vw;
+
+    }
+
+    #logoutnav{
+
+        position: absolute;
+        right: 2vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

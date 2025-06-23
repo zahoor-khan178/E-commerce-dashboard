@@ -1,10 +1,4 @@
-import './Css/image.css';
-import './Css/nav.css';
-import './Css/footer.css';
-import './Css/signup.css';
-import './Css/login.css';
-import './Css/addproduct.css';
-import './Css/productlist.css';
+
 import './Css/body.css';
 
 // Import necessary components from react-router-dom
@@ -18,6 +12,7 @@ import Update from './components/Update';
 import Image from './components/Background_image';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
+import Nav2 from './components/Nav2';
 
 // 1. Create a ProtectedRoutes Component
 const ProtectedRoutes = () => {
@@ -42,7 +37,7 @@ function MainLayout() {
 
     return (
         <div id="body">
-            {shouldShowNavAndFooter && <Nav />}
+            {shouldShowNavAndFooter ? <Nav /> : <Nav2 /> }
             
             <div className="maindiv">
                 <Routes>
@@ -70,7 +65,8 @@ function MainLayout() {
                 </Routes> 
             </div> 
             
-            {shouldShowNavAndFooter && <Footer />}
+            {/* {shouldShowNavAndFooter && <Footer />} */}
+            <Footer />
         </div>
     );
 }

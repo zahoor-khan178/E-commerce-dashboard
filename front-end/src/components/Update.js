@@ -57,15 +57,15 @@ const Update = (  ) => {
     getproductdata();
     },[]);
 
-    const getproductdata=async()=>{
+    // const getproductdata=async()=>{
 
-        let result=await fetch(`http://localhost:9000/update/${param.id}`);
-        result=await result.json();
-       setname(result.name)
-       setprice(result.price)
-       setcategory(result.category)
-       setcompany(result.company)
-    }
+    //     let result=await fetch(`http://localhost:9000/update/${param.id}`);
+    //     result=await result.json();
+    //    setname(result.name)
+    //    setprice(result.price)
+    //    setcategory(result.category)
+    //    setcompany(result.company)
+    // }
 
 
 

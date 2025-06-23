@@ -1,4 +1,6 @@
-import  { useState, useEffect } from 'react';
+import '../Css/signup.css';
+
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import '../signup.css'; 
 

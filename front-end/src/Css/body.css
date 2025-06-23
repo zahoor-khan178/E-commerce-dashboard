@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #f8f5f5;
   font-family: Arial, sans-serif;
   display: flex;
@@ -9,10 +9,10 @@ body {
   min-width: 100vw;
   padding: 0;
   margin: 0;
-  /* background-color: green; */
+  
  
 
-}
+} */
 
 * {
   padding: 0;
@@ -22,12 +22,25 @@ body {
 .maindiv {
  
   width: 100%; /* Ensure it spans the full width of its grid area */
-  min-height: 70vh;
+  height: 120vh;
+  /* max-height: fit-content; */
   display: flex; 
   flex-direction: column; /* Stack content vertically within maindiv */
   align-items: center; /* Center content horizontally within maindiv */
   justify-content: center; /* Align content to the top within maindiv */
   /* background-color: green; */
   overflow-y: auto; /* Add scrollbar if content exceeds main area height */
-  padding-top: 4vh ;
+  /* padding: 6vh 0 ; */
+  padding: 0;
+  margin: 0;
 }
+
+/* @media screen and (min-width:1441px)
+{
+
+   .maindiv {
+
+    min-height: 120vh;
+   
+   }
+} */

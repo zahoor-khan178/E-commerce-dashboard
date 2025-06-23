@@ -1,0 +1,171 @@
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height:fit-content;
+  background-color: rgb(212, 138, 163);
+  
+  background-color: rgb(222, 112, 149);
+  background-color: brown;
+  color: black;
+  position: relative;
+  align-self: end;
+  padding: 0;
+  padding-top: 3vh;
+  color: white;
+  /* margin-top: 100%; */
+  row-gap: 8vh;
+  
+}
+
+.hedingdiv{
+
+   /* background-color: red; */
+}
+
+.middlediv{
+
+/* background-color: aqua; */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 90vw;
+}
+
+.middlediv>div{
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  padding: 4vh;
+}
+
+.middlediv>div>h3{
+
+  /* margin-left: 30%; */
+
+  width: 100%;
+  text-align: center;
+  /* color: black; */
+}
+
+.middlediv>div>p{
+
+  text-align: justify;
+  /* width: 70%; */
+  
+}
+
+
+.listdiv{
+
+  /* background-color: bisque; */
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:1441px)
+{
+    .middlediv {
+
+    flex-direction: row;
+    width: 80vw;
+    /* background-color: aqua; */
+ }
+
+  .middlediv>div>p{
+
+  text-align: center;
+  font-size: 1vw;
+  /* height: 4vh; */
+  /* background-color: green; */
+
+  
+}
+
+.middlediv>div>h3{
+
+    font-size: 2vw;
+}
+  .hedingdiv{
+
+    font-size: 3vw;
+}
+
+}
+@media screen and (max-width:1440px)
+{
+
+     .middlediv {
+
+    flex-direction: row;
+    width: 80vw;
+    /* background-color: aqua; */
+ }
+
+  .middlediv>div>p{
+
+  text-align: center;
+  font-size: 2vw;
+  /* height: 4vh; */
+  /* background-color: green; */
+
+  
+}
+
+.middlediv>div>h3{
+
+    font-size: 2vw;
+}
+
+
+}
+@media screen and (max-width:768px)
+{
+ .middlediv {
+
+    flex-direction: column;
+    width: 80vw;
+ }
+
+ .middlediv>div>p{
+
+  text-align: center;
+
+  
+}
+
+.hedingdiv{
+
+    font-size: 6vw;
+}
+
+}
+
+
+@media screen and (max-width:450px){
+
+    .hedingdiv{
+
+    font-size: 3vw;
+}
+
+ .middlediv {
+
+ 
+    width: 60vw;
+ }
+}

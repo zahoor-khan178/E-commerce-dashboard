@@ -4,7 +4,8 @@ import React from 'react';
 
 import '../Css/image.css'
 
-import image from './image.jpg';
+// import image from './image.jpg';
+import computer from './computer.jpg';
 
 const Image=()=>{
 
@@ -14,7 +15,7 @@ const Image=()=>{
     return(
 
 
-        <img src={image} alt=' error'  />
+        <img src={computer} alt=' error'  />
     )
 }
 

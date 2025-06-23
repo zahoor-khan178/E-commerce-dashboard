@@ -1,47 +1,47 @@
 
 
-import '../App.css';
-import { Outlet } from 'react-router-dom';
-import Nav from './Nav';
+// import '../App.css';
+// import { Outlet } from 'react-router-dom';
+// import Nav from './Nav';
 
-import Login from './Login';
+// import Login from './Login';
 
-const Privatecom = () => {
-
-
-
-    const log = localStorage.getItem('loginuser');
-
-    if (log) {
-
-        return (
-
-            <>
-                <div>
-                    <><Nav /><Outlet /></>
+// const Privatecom = () => {
 
 
+
+//     const log = localStorage.getItem('loginuser');
+
+//     if (log) {
+
+//         return (
+
+//             <>
+//                 <div>
+//                     <><Nav /><Outlet /></>
 
 
 
 
-                </div>
+
+
+//                 </div>
 
                
 
-            </>
+//             </>
 
-        )
-    }
+//         )
+//     }
 
-    else {
+//     else {
 
 
 
-        return <><Login /></>;
-    }
-}
+//         return <><Login /></>;
+//     }
+// }
 
-export default Privatecom;
+// export default Privatecom;
 
 

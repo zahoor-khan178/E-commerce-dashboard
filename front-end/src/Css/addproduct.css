@@ -16,7 +16,7 @@
     color: brown;
   
     background-color: white;
-    box-shadow: 0 0 5px 2px;
+    /* box-shadow: 0 0 5px 2px; */
   
     padding: 5vh 0;
   
@@ -44,15 +44,16 @@
   .addproductbutton{
   
     display: flex;
+    flex-direction: row;
     position: relative;
-    top: 10px;
-    right: 110px;
+    /* top: 10px; */
+    /* right: 110px; */
     color:white;
     background-color: rgb(179, 23, 23);
   
     border: none;
     height: 30px;
-  padding: 1vw;
+  /* padding: 1vw; */
   align-items: center;
   
   }
@@ -61,7 +62,7 @@
   
     display: block;
     position: relative;
-    right: 100px;
+    /* right: 100px; */
     top: 10px;
     color: brown;
     
@@ -86,4 +87,164 @@
     height: 0px;
    
   }
+
+/* 
+  @media screen and (max-width:1024px){
+.productcomp{
+
+  height: 100%;
+}
+
+  } */
+  @media screen and (min-width:1441px){
+    .productcomp{
+
+  height: fit-content;
+  width: fit-content;
+
+  align-items: flex-start;
+  padding: 4vh 8vw;
+  gap: 5vh;
+      box-shadow: 0 0 25px 9px brown;
+}
+
+.addproductbutton{
+    
+    justify-content: center;
+      width: 30%;
+      height: 6vh;
+      /* border-radius: 10px; */
+      
+    }
+
+      .invalidinput{
+
+      font-size: 1.5vw;
+      top: -25px;
+      /* background-color: green; */
+      height: fit-content;
+      right: -10px;
+     }
+
+     .productinput{
+
+      width: 30vw;
+      height: 5vh;
+      font-size: 1vw;
+     }
+
+     .addproductbutton{
+
+      font-size: 1vw;
+      padding: 1vw;
+      height: fit-content;
+     }
+
+     .producth{
+
+      font-size: 1.5vw;
+     }
+
+  }
+  @media screen and (max-width:1440px){
+.productcomp{
+
+  box-shadow: 0 0 5px 2px brown;
+  height: fit-content;
+  width: fit-content;
+
+  align-items: flex-start;
+  padding: 3vh 8vw;
+  gap: 5vh;
+}
+
+.addproductbutton{
+    
+    justify-content: center;
+      width: 30%;
+      height: 6vh;
+      /* border-radius: 10px; */
+      
+    }
+
+      .invalidinput{
+
+      font-size: 1.5vw;
+      top: -25px;
+      /* background-color: green; */
+      height: fit-content;
+      right: -10px;
+     }
+
+     .productinput{
+
+      width: 40vw;
+      height: 4vh;
+      font-size: 1.5vw;
+     }
+
+     .addproductbutton{
+
+      font-size: 1.5vw;
+      padding: 1vw;
+      height: fit-content;
+     }
+
+     .producth{
+
+      font-size: 1.5vw;
+     }
+
+
+  }
+  @media screen and (max-width:450px)
+  {
+     .productcomp{
+      height: 120vh;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      
+      /* background-color: aqua; */
+      gap: 7vh;
+      /* padding: 0; */
+      margin: 0;
+     }
+
+   .productinput{
+
+    width: 80%;
+    height: 6vh;
+    position: relative;
+    font-size: 3vw;
+    
+  }
   
+  .addproductbutton{
+    
+    justify-content: center;
+      width: 80%;
+      height: 8vh;
+      border-radius: 10px;
+        font-size: 3vw;
+    }
+
+    .producth{
+
+      color: white;
+      background-color: brown;
+      width: 80%;
+      height: 8vh;
+      text-align: center;
+      align-content: center;
+         font-size: 3vw;
+    }
+
+     .invalidinput{
+
+      font-size: 3vw;
+      top: -30px;
+      /* background-color: green; */
+      height: 10px;
+     }
+  }

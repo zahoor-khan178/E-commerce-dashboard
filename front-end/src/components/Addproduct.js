@@ -1,7 +1,7 @@
-
+import '../Css/addproduct.css';
 
 import { useState } from "react"
-import React from 'react'
+
 
 
 const Addproduct = (  ) => {
@@ -86,6 +86,7 @@ const Addproduct = (  ) => {
 
         <div className="productcomp">
 
+     
             <h3 className="producth">Add product</h3>
 
             <input type="text" className="productinput" placeholder='Enter name' onChange={changen}  value={name}/>
@@ -101,6 +102,8 @@ const Addproduct = (  ) => {
             {error && !company &&<span className="invalidinput">invalid company</span>}
 
             <button className="addproductbutton" type='button' onClick={addproduct}>add product</button>
+        
+       
         </div>
     )
 }
