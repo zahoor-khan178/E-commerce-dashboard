@@ -166,7 +166,10 @@
         box-shadow: none; /* Remove shadow on very small screens for cleaner look */
         max-width: none;
         /* height: 90vh; */
-        padding: 20vh 8vw;
+        padding: 10vh 4vw;
+         border: 2px solid black; 
+        width: fit-content; 
+        border-radius: 15px;
     }
 
     .logheadign h2 {
@@ -177,11 +180,16 @@
     .loginh2,
     .loginbutton {
         font-size: 1rem; /* Slightly smaller text for inputs and buttons */
-        height: 2.8rem; /* Adjust height */
-        padding: 0.7rem 0.8rem;
+        height: 3.5rem; /* Adjust height */
+        /* padding: 0.7rem 0.8rem; */
+        width: 85vw; 
     }
+    /* .loginh1::placeholder,
+.loginh2::placeholder{
+    color: brown;
+} */
 
     #account-link {
-        font-size: 0.85rem; /* Adjust link text size */
+        font-size: 1rem; /* Adjust link text size */
     }
 }

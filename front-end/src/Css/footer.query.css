@@ -167,5 +167,20 @@ width: 90vw;
 
  
     width: 60vw;
+   
  }
+
+   .middlediv>div>p{
+
+  text-align: center;
+  font-size: 3vw;
+
+
+  
+}
+
+.middlediv>div>h3{
+
+    font-size: 3vw;
+}
 }
