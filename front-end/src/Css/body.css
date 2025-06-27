@@ -32,7 +32,7 @@
   overflow-y: auto; /* Add scrollbar if content exceeds main area height */
   /* padding: 6vh 0 ; */
   padding: 0;
-  margin: 0;
+  
 }
 
 /* @media screen and (min-width:1441px)

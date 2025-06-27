@@ -169,28 +169,28 @@
 
      .th-cell{
 
-        font-size: 2vw;
+        font-size: 1.3vw;
         text-align: center;
-        padding: 2vw;
+        padding: 2vh 4vw;
 
     }
 .td-cell{
 
-    font-size: 2vw;
+    font-size: 1.3vw;
     text-align: center;
-    padding: 2vw;
+   padding: 2vh 4vw;
     
 }
 
 .delete{
 
-        font-size: 1.5vw;
+        font-size: 1vw;
        padding: 0.5vw;
 }
 
 .update-button-style{
 
-       font-size: 1.5vw;
+       font-size: 1vw;
        padding: 0.5vw;
 }
 

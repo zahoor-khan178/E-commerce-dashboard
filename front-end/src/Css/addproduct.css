@@ -169,7 +169,7 @@
 
       .invalidinput{
 
-      font-size: 1.5vw;
+      font-size: 1vw;
       top: -25px;
       /* background-color: green; */
       height: fit-content;
@@ -178,14 +178,14 @@
 
      .productinput{
 
-      width: 40vw;
+      width: 30vw;
       height: 4vh;
-      font-size: 1.5vw;
+      font-size: 1vw;
      }
 
      .addproductbutton{
 
-      font-size: 1.5vw;
+      font-size: 1vw;
       padding: 1vw;
       height: fit-content;
      }

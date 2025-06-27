@@ -151,10 +151,11 @@ width: 30vw;
     .signup-form{
 
         gap: 6vh;
+        width: fit-content;
     }
 
     .form-input, .signup-button{
-width: 60vw;
+        width: 30vw;
         height: 5vh;
         font-size: 1.5vw;
       

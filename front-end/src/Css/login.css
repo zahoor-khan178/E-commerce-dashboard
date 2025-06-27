@@ -145,17 +145,17 @@
 
     .logindiv {
 
-        width: 60%;
+        width: fit-content;
         /* padding: 10vh 0; */
     }
    .loginh1,
     .loginh2,
     .loginbutton {
         font-size: 1.5rem; 
-        width: 50vw;
+        width: 30vw;
         height: 8vh;
         /* height: 2.8rem;  */
-        /* padding: 0.7rem 0.8rem; */
+        padding:0 0;
     }
 }
 
