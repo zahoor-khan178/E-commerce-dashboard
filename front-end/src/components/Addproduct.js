@@ -50,6 +50,15 @@ const Addproduct = (  ) => {
             seterror(true);
             return false;
         }
+
+        // const token=localStorage.getItem('token');
+        // if(!token)
+        //             {
+        //                 alert('please login first');
+        //                 return false;
+        //             }
+
+
         
        
     
@@ -60,7 +69,8 @@ const Addproduct = (  ) => {
                     
                 }),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                  
                 }
             });
             

@@ -20,19 +20,19 @@ app.post('/register', async (req, resp) => {
       delete result.password;
 
       
-            // jwt.sign({result},jwtkey,{expiresIn:"2h"},(err,token)=>{
+            jwt.sign({result},jwtkey,{expiresIn:"1h"},(err,token)=>{
 
-            //    if(err){
+               if(err){
 
-            //       resp.send('something went wrong')
-            //    }
-            //    else{
+                  resp.send('problem in token')
+               }
+               else{
 
-            //          resp.send({result,auth:token})
-            //    }
-            // })
+                     resp.send({result,auth:token})
+               }
+            })
 
-            resp.send(result);
+            // resp.send(result);
 
    } catch (error) {       
     console.log('Error in signup API:',error);    
@@ -52,19 +52,19 @@ app.post('/login', async (req, resp) => {
          const user = await User.findOne(req.body).select('-password')
          if (user) {
 
-            // jwt.sign({user},jwtkey,{expiresIn:"2h"},(err,token)=>{
+            jwt.sign({user},jwtkey,{expiresIn:"1h"},(err,token)=>{
 
-            //    if(err){
+               if(err){
 
-            //       resp.send('something went wrong')
-            //    }
-            //    else{
+                  resp.send('something went wrong')
+               }
+               else{
 
-            //          resp.send({user,auth:token})
-            //    }
-            // })
+                     resp.send({user,auth:token})
+               }
+            })
 
-            resp.send(user)
+            // resp.send(user)
 
             
          }
@@ -86,7 +86,7 @@ app.post('/login', async (req, resp) => {
    }
 })
 
-app.post('/add-product', async (req, resp) => {
+app.post('/add-product', verifyToken, async (req, resp) => {
 
    const newproduct = new product(req.body);
    const result = await newproduct.save();
@@ -96,7 +96,7 @@ app.post('/add-product', async (req, resp) => {
 
 })
 
-app.get('/product', async (req, resp) => {
+app.get('/product', verifyToken, async (req, resp) => {
 
    const products = await product.find()
    if (products.length > 0) {
@@ -140,7 +140,7 @@ app.put('/update/:id', async (req, resp) => {
 })
 
 
-app.get('/search/:key', async (req, resp) => {
+app.get('/search/:key',  async (req, resp) => {
 
    const result = await product.find({
 
@@ -170,6 +170,24 @@ app.get('/search/:key', async (req, resp) => {
 })
 
 
+function verifyToken(req, resp, next) {
+   let token = req.headers['authorization'];
+   if(token) {
+
+      token = token.split(' ')[1]; 
+      jwt.verify(token, jwtkey, (err, valid) => {
+         if(err) {
+            resp.status(401).send({ result: "please provide valid token" });
+         } else {
+            next();
+         }
+      });
+   }
+   else {
+      resp.status(403).send({ result: "please add token with header" });
+   }
+
+}
 
 
 app.listen(9000);
