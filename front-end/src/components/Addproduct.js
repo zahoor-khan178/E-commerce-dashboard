@@ -92,7 +92,8 @@ const Addproduct = (  ) => {
             // Display the message from the backend in an alert
             window.alert(errorData.message || `HTTP error! status: ${result.status}`);
 
-            localStorage.clear();
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
 
            nevigate('/login');
    

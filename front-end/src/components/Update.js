@@ -10,6 +10,8 @@ const Update = () => {
     // const{setmargin}=useOutletContext();
 
 
+
+
     const [name, setname] = useState('')
     const [price, setprice] = useState('')
     const [category, setcategory] = useState('')
@@ -44,18 +46,20 @@ const Update = () => {
     useEffect(() => {
 
 
+
         const getproductdata = async () => {
 
-             const token = JSON.parse(localStorage.getItem('token'));
-                const user = JSON.parse(localStorage.getItem('user'));
+            const token = JSON.parse(localStorage.getItem('token'));
+            const user = JSON.parse(localStorage.getItem('user'));
 
-                if (!token || !user) {
-                    window.alert("Your session has expired or you are not logged in. Please log in again.");
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('user');
-                    navigate('/login');
-                    return;
-                }
+            if (!token || !user) {
+                window.alert("Your session has expired or you are not logged in. Please log in again.");
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                navigate('/login');
+                return;
+            }
+
 
             let result = await fetch(`http://localhost:9000/update/${param.id}`, {
 
@@ -70,10 +74,14 @@ const Update = () => {
 
                 const errorData = await result.json();
 
-                window.alert(errorData.message || `HTTP error! status: ${result.status}`);
 
-                localStorage.clear();
-                 navigate('/login');
+                if (window.location.pathname !== '/login') {
+                    window.alert(errorData.message || `HTTP error! status: ${result.status}`);
+                }
+
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                navigate('/login');
 
                 return;
             }
@@ -101,16 +109,22 @@ const Update = () => {
             return;
         }
 
-         const token = JSON.parse(localStorage.getItem('token'));
-                const user = JSON.parse(localStorage.getItem('user'));
+        const token = JSON.parse(localStorage.getItem('token'));
+        const user = JSON.parse(localStorage.getItem('user'));
 
-                if (!token || !user) {
-                    window.alert("Your session has expired or you are not logged in. Please log in again.");
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('user');
-                    navigate('/login');
-                    return;
-                }
+
+
+
+
+        if (!token || !user) {
+            window.alert("Your session has expired or you are not logged in. Please log in again.");
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            navigate('/login');
+            return;
+        }
+
+
 
 
         let result = await fetch(`http://localhost:9000/Update/${param.id}`,
@@ -129,10 +143,15 @@ const Update = () => {
 
             const errorData = await result.json();
 
-            window.alert(errorData.message || `HTTP error! status: ${result.status}`);
+            if (window.location.pathname !== '/login') {
+                window.alert(errorData.message || `HTTP error! status: ${result.status}`);
+            }
 
-            localStorage.clear();
-             navigate('/login');
+
+
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            navigate('/login');
 
             return;
         }

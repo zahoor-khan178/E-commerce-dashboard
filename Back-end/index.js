@@ -20,7 +20,7 @@ app.post('/register', async (req, resp) => {
       delete result.password;
 
       
-            jwt.sign({result},jwtkey,{expiresIn:"10s"},(err,token)=>{
+            jwt.sign({result},jwtkey,{expiresIn:"1h"},(err,token)=>{
 
                if(err){
 
@@ -32,7 +32,6 @@ app.post('/register', async (req, resp) => {
                }
             })
 
-            // resp.send(result);
 
    } catch (error) {       
     console.log('Error in signup API:',error);    
@@ -52,7 +51,7 @@ app.post('/login', async (req, resp) => {
          const user = await User.findOne(req.body).select('-password')
          if (user) {
 
-            jwt.sign({user},jwtkey,{expiresIn:"10s"},(err,token)=>{
+            jwt.sign({user},jwtkey,{expiresIn:"1h"},(err,token)=>{
 
                if(err){
 
@@ -64,7 +63,7 @@ app.post('/login', async (req, resp) => {
                }
             })
 
-            // resp.send(user)
+            
 
             
          }

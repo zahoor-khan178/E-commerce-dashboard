@@ -14,8 +14,9 @@ const Nav = () => {
 
     const logout = () => {
 
-        // localStorage.removeItem('token','user');
-        localStorage.clear();
+       
+          localStorage.removeItem('token');
+            localStorage.removeItem('user');
      
     }
 
