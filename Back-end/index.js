@@ -20,7 +20,7 @@ app.post('/register', async (req, resp) => {
       delete result.password;
 
       
-            jwt.sign({result},jwtkey,{expiresIn:"1h"},(err,token)=>{
+            jwt.sign({result},jwtkey,{expiresIn:"10s"},(err,token)=>{
 
                if(err){
 
@@ -52,7 +52,7 @@ app.post('/login', async (req, resp) => {
          const user = await User.findOne(req.body).select('-password')
          if (user) {
 
-            jwt.sign({user},jwtkey,{expiresIn:"1h"},(err,token)=>{
+            jwt.sign({user},jwtkey,{expiresIn:"10s"},(err,token)=>{
 
                if(err){
 
@@ -108,7 +108,7 @@ app.get('/product', verifyToken, async (req, resp) => {
    }
 })
 
-app.delete('/delete/:id', async (req, resp) => {
+app.delete('/delete/:id', verifyToken, async (req, resp) => {
 
    // resp.send('api in progress...');
    const result = await product.deleteOne({ _id: req.params.id })
@@ -118,7 +118,7 @@ app.delete('/delete/:id', async (req, resp) => {
 })
 
 
-app.get('/update/:id', async (req, resp) => {
+app.get('/update/:id', verifyToken, async (req, resp) => {
 
    const result = await product.findOne({ _id: req.params.id })
    if (result) {
@@ -133,14 +133,14 @@ app.get('/update/:id', async (req, resp) => {
 })
 
 
-app.put('/update/:id', async (req, resp) => {
+app.put('/Update/:id', verifyToken, async (req, resp) => {
 
    const result = await product.updateOne({ _id: req.params.id }, { $set: req.body })
    resp.send(result);
 })
 
 
-app.get('/search/:key',  async (req, resp) => {
+app.get('/search/:key', verifyToken,  async (req, resp) => {
 
    const result = await product.find({
 
@@ -177,14 +177,14 @@ function verifyToken(req, resp, next) {
       token = token.split(' ')[1]; 
       jwt.verify(token, jwtkey, (err, valid) => {
          if(err) {
-            resp.status(401).send({ result: "please provide valid token" });
+            resp.status(401).send({ message: " your session has been expired. please login again" });
          } else {
             next();
          }
       });
    }
    else {
-      resp.status(403).send({ result: "please add token with header" });
+      resp.status(403).send({ message: "please add token with header" });
    }
 
 }

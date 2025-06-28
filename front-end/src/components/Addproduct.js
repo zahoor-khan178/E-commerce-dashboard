@@ -1,6 +1,7 @@
 import '../Css/addproduct.css';
 
-import { useState } from "react"
+import { useState} from "react";
+import { useNavigate} from "react-router-dom";
 
 
 
@@ -9,11 +10,13 @@ const Addproduct = (  ) => {
    
     
   
-    const [name, setname] = useState('')
-    const [price, setprice] = useState('')
-    const [category, setcategory] = useState('')
-    const [company, setcompany] = useState('')
-    const [error,seterror]=useState(false)
+    const [name, setname] = useState('');
+    const [price, setprice] = useState('');
+    const [category, setcategory] = useState('');
+    const [company, setcompany] = useState('');
+    const [error,seterror]=useState(false);
+
+    const nevigate=useNavigate();
 
     const changen = (event) => {
 
@@ -51,33 +54,50 @@ const Addproduct = (  ) => {
             return false;
         }
 
-        // const token=localStorage.getItem('token');
-        // if(!token)
-        //             {
-        //                 alert('please login first');
-        //                 return false;
-        //             }
 
 
-        
+          
        
     
         try {
-            const response = await fetch('http://localhost:9000/add-product', {
+
+               const token = JSON.parse(localStorage.getItem('token'));
+                const user = JSON.parse(localStorage.getItem('user'));
+
+                if (!token || !user) {
+                    window.alert("Your session has expired or you are not logged in. Please log in again.");
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    nevigate('/login');
+                    return;
+                }
+
+            const result = await fetch('http://localhost:9000/add-product', {
                 method: "POST",
                 body: JSON.stringify({ name, price, category, company,userid
                     
                 }),
                 headers: {
                     "Content-Type": "application/json",
+                    authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
                   
                 }
             });
             
             
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+           
+          if (!result.ok) {
+            // Parse the JSON response to get the error message
+            const errorData = await result.json();
+            // Display the message from the backend in an alert
+            window.alert(errorData.message || `HTTP error! status: ${result.status}`);
+
+            localStorage.clear();
+
+           nevigate('/login');
+   
+            return; 
+        }
             alert('inserted successfuly')
             setname('');
             setprice('');
