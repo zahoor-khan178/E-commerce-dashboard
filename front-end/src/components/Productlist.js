@@ -1,6 +1,6 @@
 import '../Css/productlist.query.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react'; // Import useCallback
 import { Link, useNavigate } from 'react-router-dom';
 
 const Productlist = () => {
@@ -10,11 +10,8 @@ const Productlist = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        getProducts();
-    }, []);
-
-    const getProducts = async () => {
+    // Function to fetch products from the backend - Wrapped in useCallback
+    const getProducts = useCallback(async () => {
         setLoading(true);
 
         try {
@@ -42,7 +39,6 @@ const Productlist = () => {
                     window.alert(errorData.message || `HTTP error! Status: ${result.status}`);
                 }
 
-
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
@@ -62,9 +58,15 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    };
+    }, [navigate, setProducts, setLoading]); // getProducts depends on navigate, setProducts, setLoading
 
-    const deleteData = async (id) => {
+    // useEffect now correctly includes getProducts in its dependencies
+    useEffect(() => {
+        getProducts();
+    }, [getProducts]); // Added getProducts to dependency array
+
+    // Function to delete a product - Wrapped in useCallback
+    const deleteData = useCallback(async (id) => {
         setLoading(true);
         try {
             const token = JSON.parse(localStorage.getItem('token'));
@@ -100,7 +102,7 @@ const Productlist = () => {
 
             result = await result.json();
             if (result) {
-                getProducts();
+                getProducts(); // Re-fetch products to update the list
                 window.alert('Record is deleted successfully.');
             }
         } catch (error) {
@@ -111,9 +113,11 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    };
+    }, [getProducts, navigate, setProducts, setLoading]); // deleteData depends on getProducts, navigate, setProducts, setLoading
 
-    const handleSearch = async (event) => {
+
+    // Function to handle product search - Wrapped in useCallback
+    const handleSearch = useCallback(async (event) => {
         const key = event.target.value;
         setSearchKey(key);
 
@@ -146,7 +150,6 @@ const Productlist = () => {
                     if (window.location.pathname !== '/login') {
                         window.alert(errorData.message || `HTTP error! Status: ${result.status}`);
                     }
-
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setProducts([]);
@@ -165,7 +168,7 @@ const Productlist = () => {
                 }
             }
         }
-    };
+    }, [getProducts, navigate, setProducts, setLoading]); // handleSearch depends on getProducts, navigate, setProducts, setLoading
 
     return (
         <div className="product-table">

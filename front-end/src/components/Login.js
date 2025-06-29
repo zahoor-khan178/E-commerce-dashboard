@@ -8,36 +8,7 @@ const Login = () => {
     const [password, setpassword] = useState('');
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     const auth_data = localStorage.getItem('user');
-    //     const loginuser = localStorage.getItem('loginuser');
-
-        
-
-      
-    //     if (auth_data) {
-
-    //         if (loginuser) {
-    //             navigate('/'); 
-            
-    //         }
-    //         else{
-
-    //             navigate('/login');
-    //         }
     
-          
-    //     } 
-
-
-    //     else{
-
-    //         navigate('/sign')
-    //     }
-        
-
-        
-    // }, [navigate]);
 
     const change = (event) => {
         setemail(event.target.value);

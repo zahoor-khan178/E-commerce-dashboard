@@ -14,20 +14,29 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Nav2 from './components/Nav2';
 
+
+ 
+
 // 1. Create a ProtectedRoutes Component
 const ProtectedRoutes = () => {
-    const auth_data = localStorage.getItem('user'); // Check for authentication data
+
+    const user = localStorage.getItem('user'); // Check for authentication data
+    const token = localStorage.getItem('token'); 
+   
 
     // If auth_data exists, render the child routes (Outlet)
     // Otherwise, redirect to the login page
-    return auth_data ? <Outlet /> : <Navigate to="/login" replace />;
+    return user && token ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 
 // MainLayout component for conditional rendering of Nav and Footer
 function MainLayout() {
+
+    const user = localStorage.getItem('user'); // Check for authentication data
+    const token = localStorage.getItem('token'); 
     const location = useLocation();
-    const auth_data = localStorage.getItem('user'); // Get auth data here for login page redirection
+   
 
     // Define routes where Nav and Footer should NOT be displayed
     const noNavFooterRoutes = ['/login', '/sign'];
@@ -45,7 +54,7 @@ function MainLayout() {
                     {/* Login page: If auth_data exists, redirect away from login; otherwise, show Login component */}
                     <Route
                         path="/login"
-                        element={auth_data ? <Navigate to={location.state?.from || "/"} replace /> : <Login />}
+                        element={user && token ? <Navigate to={location.state?.from || "/"} replace /> : <Login />}
                     />
                     <Route path="/sign" element={<Signup />} /> {/* Signup is always accessible */}
 
@@ -61,7 +70,7 @@ function MainLayout() {
                     {/* If a route doesn't match and auth_data doesn't exist, redirect to login */}
                     {/* If a route doesn't match and auth_data exists, maybe redirect to home or a 404 page */}
                     {/* For this specific requirement, if auth_data does not exist, any non-login/signup page should go to login */}
-                     <Route path="*" element={auth_data ? <Navigate to="/" replace /> : <Navigate to="/login" replace />} />
+                     <Route path="*" element={user && token ? <Navigate to="/" replace /> : <Navigate to="/login" replace />} />
                 </Routes> 
             </div> 
             

@@ -1,7 +1,7 @@
 import '../Css/addproduct.css';
 
 import { useState} from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 
 
 
@@ -17,6 +17,7 @@ const Addproduct = (  ) => {
     const [error,seterror]=useState(false);
 
     const nevigate=useNavigate();
+    const location=useLocation();
 
     const changen = (event) => {
 
@@ -68,7 +69,7 @@ const Addproduct = (  ) => {
                     window.alert("Your session has expired or you are not logged in. Please log in again.");
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
-                    nevigate('/login');
+                    nevigate('/login', {state:{form:location.pathname}});
                     return;
                 }
 
@@ -95,7 +96,7 @@ const Addproduct = (  ) => {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
 
-           nevigate('/login');
+              nevigate('/login', {state:{form:location.pathname}});
    
             return; 
         }

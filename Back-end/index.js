@@ -51,7 +51,7 @@ app.post('/login', async (req, resp) => {
          const user = await User.findOne(req.body).select('-password')
          if (user) {
 
-            jwt.sign({user},jwtkey,{expiresIn:"1h"},(err,token)=>{
+            jwt.sign({user},jwtkey,{expiresIn:"5s"},(err,token)=>{
 
                if(err){
 
