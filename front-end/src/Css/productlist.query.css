@@ -2,10 +2,12 @@
 
 .product-table{
 
-    width: 100vw;
+    width: 90vw;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+  
 }
   
 
@@ -92,8 +94,9 @@
   justify-content: center;
   align-items: center;
   gap: 0.5vw;
-  /* flex: 1; */
-  /* width:fit-content ; */
+  border-left: none;
+  border-top: none;
+  
   
 }
 
@@ -118,8 +121,7 @@
 
   .product-table{
 
-    /* background-color: aqua; */
-    height:fit-content;
+    
     padding: 0;
   }
 
