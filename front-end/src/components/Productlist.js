@@ -1,7 +1,7 @@
 import '../Css/productlist.query.css';
 
 import { useEffect, useState, useCallback } from 'react'; // Import useCallback
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Productlist = () => {
     const [products, setProducts] = useState([]);
@@ -9,6 +9,7 @@ const Productlist = () => {
     const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
+    const location=useLocation();
 
     // Function to fetch products from the backend - Wrapped in useCallback
     const getProducts = useCallback(async () => {
@@ -42,7 +43,7 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login');
+                navigate('/login', {state:{form:location.pathname}});
                 return;
             }
 
@@ -58,7 +59,7 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    }, [navigate, setProducts, setLoading]); // getProducts depends on navigate, setProducts, setLoading
+    }, [navigate, setProducts, setLoading, location]); // getProducts depends on navigate, setProducts, setLoading
 
     // useEffect now correctly includes getProducts in its dependencies
     useEffect(() => {
