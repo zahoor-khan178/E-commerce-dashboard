@@ -24,7 +24,7 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login');
+               navigate('/login', {state:{from:location.pathname}});
                 return;
             }
 
@@ -43,7 +43,7 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login', {state:{form:location.pathname}});
+                navigate('/login', {state:{from:location.pathname}});
                 return;
             }
 
@@ -68,6 +68,16 @@ const Productlist = () => {
 
     // Function to delete a product - Wrapped in useCallback
     const deleteData = useCallback(async (id) => {
+
+
+         const confirm= window.confirm("Are you sure you want to delete this record?");
+
+           if(!confirm) {
+                setLoading(false);
+                return; 
+            }
+
+
         setLoading(true);
         try {
             const token = JSON.parse(localStorage.getItem('token'));
@@ -78,7 +88,7 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login');
+                navigate('/login', {state:{from:location.pathname}});
                 return;
             }
 
@@ -97,14 +107,16 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login');
+                navigate('/login', {state:{from:location.pathname}});
                 return;
             }
+
+          
 
             result = await result.json();
             if (result) {
                 getProducts(); // Re-fetch products to update the list
-                window.alert('Record is deleted successfully.');
+                // window.alert('Record is deleted successfully.');
             }
         } catch (error) {
             console.error("Failed to delete product:", error);
@@ -114,7 +126,7 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    }, [getProducts, navigate, setProducts, setLoading]); // deleteData depends on getProducts, navigate, setProducts, setLoading
+    }, [getProducts, navigate, setProducts, setLoading, location]); // deleteData depends on getProducts, navigate, setProducts, setLoading
 
 
     // Function to handle product search - Wrapped in useCallback
@@ -135,7 +147,7 @@ const Productlist = () => {
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setProducts([]);
-                    navigate('/login');
+                  navigate('/login', {state:{from:location.pathname}});
                     return;
                 }
 
@@ -154,7 +166,7 @@ const Productlist = () => {
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setProducts([]);
-                    navigate('/login');
+                    navigate('/login', {state:{from:location.pathname}});
                     return;
                 }
 
@@ -169,7 +181,7 @@ const Productlist = () => {
                 }
             }
         }
-    }, [getProducts, navigate, setProducts, setLoading]); // handleSearch depends on getProducts, navigate, setProducts, setLoading
+    }, [getProducts, navigate, setProducts, setLoading, location]); // handleSearch depends on getProducts, navigate, setProducts, setLoading
 
     return (
         <div className="product-table">

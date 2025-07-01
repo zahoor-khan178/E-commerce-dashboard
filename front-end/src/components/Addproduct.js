@@ -69,7 +69,7 @@ const Addproduct = (  ) => {
                     window.alert("Your session has expired or you are not logged in. Please log in again.");
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
-                    nevigate('/login', {state:{form:location.pathname}});
+                    nevigate('/login', {state:{from:location.pathname}});
                     return;
                 }
 
@@ -96,7 +96,7 @@ const Addproduct = (  ) => {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
 
-              nevigate('/login', {state:{form:location.pathname}});
+              nevigate('/login', {state:{from:location.pathname}});
    
             return; 
         }

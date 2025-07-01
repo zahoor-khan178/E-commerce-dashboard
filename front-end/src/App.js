@@ -14,11 +14,15 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Nav2 from './components/Nav2';
 
+   
+
 
  
 
 // 1. Create a ProtectedRoutes Component
 const ProtectedRoutes = () => {
+
+     let location = useLocation();
 
     const user = localStorage.getItem('user'); // Check for authentication data
     const token = localStorage.getItem('token'); 
@@ -26,16 +30,22 @@ const ProtectedRoutes = () => {
 
     // If auth_data exists, render the child routes (Outlet)
     // Otherwise, redirect to the login page
-    return user && token ? <Outlet /> : <Navigate to="/login" replace />;
+  return user && token ? (
+        <Outlet />
+    ) : (
+        <Navigate to="/login" state={{ from: location.pathname }} replace />
+    );
 };
 
 
 // MainLayout component for conditional rendering of Nav and Footer
 function MainLayout() {
 
+    let location = useLocation();
+
     const user = localStorage.getItem('user'); // Check for authentication data
     const token = localStorage.getItem('token'); 
-    const location = useLocation();
+
    
 
     // Define routes where Nav and Footer should NOT be displayed

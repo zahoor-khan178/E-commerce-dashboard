@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react" // Import useCallback
 
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 
 const Update = () => {
     const [name, setname] = useState('')
@@ -9,7 +9,8 @@ const Update = () => {
     const [company, setcompany] = useState('')
     const [error, seterror] = useState(false) // State to manage form validation errors
     const param = useParams(); // Hook to get URL parameters (e.g., product ID)
-    const navigate = useNavigate(); // Hook for programmatic navigation
+    const navigate = useNavigate(); 
+    const location = useLocation(); // Hook to get the current location
 
     // Handlers for input changes
     const changen = (event) => {
@@ -36,7 +37,7 @@ const Update = () => {
                 window.alert("Your session has expired or you are not logged in. Please log in again.");
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-                navigate('/login');
+              navigate('/login', {state:{from:location.pathname}});
                 return; // Stop execution
             }
 
@@ -57,7 +58,7 @@ const Update = () => {
 
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-                navigate('/login'); // Redirect to login
+              navigate('/login', {state:{from:location.pathname}});
                 return; // Stop execution
             }
 
@@ -73,7 +74,7 @@ const Update = () => {
             window.alert("Failed to connect to the server or an unexpected error occurred. Please try again.");
             // Optionally, navigate to a safe page or show a generic error page
         }
-    }, [param.id, navigate, setname, setprice, setcategory, setcompany]); // Dependencies for useCallback
+    }, [param.id, navigate, setname, setprice, setcategory, setcompany, location]); // Dependencies for useCallback
 
     // useEffect to call getproductdata when the component mounts or param.id changes
     useEffect(() => {
@@ -122,7 +123,7 @@ const Update = () => {
 
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-                navigate('/login');
+                navigate('/login', {state:{from:location.pathname}});
                 return;
             }
 
