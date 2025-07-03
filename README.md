@@ -2,7 +2,7 @@
 
 ## Description
 
-This E-Commerce project is built using the MEARN stack (MongoDB, Express.js, React.js, and Node.js). It provides a comprehensive platform for managing products in an online store. The application features four main pages: **Add Product**, **Update Product**, **Product List**, and **Home**. 
+This E-Commerce project is built using the MEARN stack (MongoDB, Express.js, React.js, and Node.js). It provides a comprehensive platform for managing products in an online store, secured with JSON Web Tokens (JWT) for robust authentication and authorization. The application features four main pages: **Add Product**, **Update Product**, **Product List**, and **Home**. 
 
 ## Features
 
