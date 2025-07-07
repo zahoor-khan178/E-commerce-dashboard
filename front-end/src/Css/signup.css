@@ -64,7 +64,7 @@
 .form-input {
     width: 100%; /* Take full width of its parent */
     padding: 12px 0;
-    border: 1px solid #ddd; /* Light border */
+    border: 1px solid brown; /* Light border */
     border-radius: 8px; /* Rounded input fields */
     font-size: 1em;
     color: #333;
@@ -156,7 +156,7 @@ width: 30vw;
 
     .form-input, .signup-button{
         width: 30vw;
-        height: 5vh;
+        height: 4vh;
         font-size: 1vw;
       
 

@@ -41,7 +41,7 @@
     width: 100%; /* Take full width of parent */
     padding: 0.8rem 1rem; /* Vertical and horizontal padding */
     /* height: 3rem;  */
-    border: 1px solid #ced4da; /* Light grey border */
+    border: 1px solid brown; /* Light grey border */
     border-radius: 8px; /* Rounded input corners */
     background-color: #f8f9fa; /* Off-white background */
     font-size: 1.1rem; /* Responsive font size for input text */
