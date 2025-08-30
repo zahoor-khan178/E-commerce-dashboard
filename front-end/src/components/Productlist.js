@@ -1,6 +1,5 @@
 import '../Css/productlist.query.css';
-
-import { useEffect, useState, useCallback } from 'react'; // Import useCallback
+import { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Productlist = () => {
@@ -9,7 +8,10 @@ const Productlist = () => {
     const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
-    const location=useLocation();
+    const location = useLocation();
+
+    // ✅ Use API URL from environment variables
+    const API_URL = process.env.REACT_APP_API_URL;
 
     // Function to fetch products from the backend - Wrapped in useCallback
     const getProducts = useCallback(async () => {
@@ -24,11 +26,11 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-               navigate('/login', {state:{from:location.pathname}});
+                navigate('/login', { state: { from: location.pathname } });
                 return;
             }
 
-            let result = await fetch("http://localhost:9000/product", {
+            let result = await fetch(`${API_URL}/product`, {
                 headers: {
                     authorization: `bearer ${token}`
                 }
@@ -43,7 +45,7 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login', {state:{from:location.pathname}});
+                navigate('/login', { state: { from: location.pathname } });
                 return;
             }
 
@@ -59,24 +61,20 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    }, [navigate, setProducts, setLoading, location]); // getProducts depends on navigate, setProducts, setLoading
+    }, [navigate, location, API_URL]);
 
-    // useEffect now correctly includes getProducts in its dependencies
     useEffect(() => {
         getProducts();
-    }, [getProducts]); // Added getProducts to dependency array
+    }, [getProducts]);
 
     // Function to delete a product - Wrapped in useCallback
     const deleteData = useCallback(async (id) => {
+        const confirm = window.confirm("Are you sure you want to delete this record?");
 
-
-         const confirm= window.confirm("Are you sure you want to delete this record?");
-
-           if(!confirm) {
-                setLoading(false);
-                return; 
-            }
-
+        if (!confirm) {
+            setLoading(false);
+            return;
+        }
 
         setLoading(true);
         try {
@@ -88,11 +86,11 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login', {state:{from:location.pathname}});
+                navigate('/login', { state: { from: location.pathname } });
                 return;
             }
 
-            let result = await fetch(`http://localhost:9000/delete/${id}`, {
+            let result = await fetch(`${API_URL}/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${token}`
@@ -107,16 +105,13 @@ const Productlist = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 setProducts([]);
-                navigate('/login', {state:{from:location.pathname}});
+                navigate('/login', { state: { from: location.pathname } });
                 return;
             }
 
-          
-
             result = await result.json();
             if (result) {
-                getProducts(); // Re-fetch products to update the list
-                // window.alert('Record is deleted successfully.');
+                getProducts();
             }
         } catch (error) {
             console.error("Failed to delete product:", error);
@@ -126,8 +121,7 @@ const Productlist = () => {
                 setLoading(false);
             }
         }
-    }, [getProducts, navigate, setProducts, setLoading, location]); // deleteData depends on getProducts, navigate, setProducts, setLoading
-
+    }, [getProducts, navigate, location, API_URL]);
 
     // Function to handle product search - Wrapped in useCallback
     const handleSearch = useCallback(async (event) => {
@@ -147,11 +141,11 @@ const Productlist = () => {
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setProducts([]);
-                  navigate('/login', {state:{from:location.pathname}});
+                    navigate('/login', { state: { from: location.pathname } });
                     return;
                 }
 
-                let result = await fetch(`http://localhost:9000/search/${key}`, {
+                let result = await fetch(`${API_URL}/search/${key}`, {
                     method: "GET",
                     headers: {
                         authorization: `bearer ${token}`
@@ -166,7 +160,7 @@ const Productlist = () => {
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setProducts([]);
-                    navigate('/login', {state:{from:location.pathname}});
+                    navigate('/login', { state: { from: location.pathname } });
                     return;
                 }
 
@@ -181,7 +175,7 @@ const Productlist = () => {
                 }
             }
         }
-    }, [getProducts, navigate, setProducts, setLoading, location]); // handleSearch depends on getProducts, navigate, setProducts, setLoading
+    }, [getProducts, navigate, location, API_URL]);
 
     return (
         <div className="product-table">
