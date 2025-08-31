@@ -70,7 +70,7 @@ app.post('/add-product', verifyToken, async (req, resp) => {
   }
 });
 
-app.get('/product', async (req, resp) => {
+app.get('/product', verifyToken, async (req, resp) => {
   const products = await Product.find();
   if (products.length > 0) {
     resp.send(products);
