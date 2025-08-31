@@ -7,22 +7,15 @@ const Addproduct = () => {
     const [price, setprice] = useState('');
     const [category, setcategory] = useState('');
     const [company, setcompany] = useState('');
-    const [error, seterror] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
-
-    // Input handlers
-    const changen = (e) => setname(e.target.value);
-    const changep = (e) => setprice(e.target.value);
-    const changecat = (e) => setcategory(e.target.value);
-    const changecomp = (e) => setcompany(e.target.value);
 
     // Add Product Function
     const addproduct = useCallback(async () => {
         // Validation check
         if (!name || !price || !category || !company) {
-            seterror(true);
+            alert("All fields are required");
             return;
         }
 
@@ -85,37 +78,33 @@ const Addproduct = () => {
                 type="text"
                 className="productinput"
                 placeholder="Enter name"
-                onChange={changen}
+                onChange={(e) => setname(e.target.value)}
                 value={name}
             />
-            {error && !name && <span className="invalidinput">Invalid name</span>}
 
             <input
                 type="number"
                 className="productinput"
                 placeholder="Enter price"
-                onChange={changep}
+                onChange={(e) => setprice(e.target.value)}
                 value={price}
             />
-            {error && !price && <span className="invalidinput">Invalid price</span>}
 
             <input
                 type="text"
                 className="productinput"
                 placeholder="Enter category"
-                onChange={changecat}
+                onChange={(e) => setcategory(e.target.value)}
                 value={category}
             />
-            {error && !category && <span className="invalidinput">Invalid category</span>}
 
             <input
                 type="text"
                 className="productinput"
                 placeholder="Enter company"
-                onChange={changecomp}
+                onChange={(e) => setcompany(e.target.value)}
                 value={company}
             />
-            {error && !company && <span className="invalidinput">Invalid company</span>}
 
             <button
                 className="addproductbutton"

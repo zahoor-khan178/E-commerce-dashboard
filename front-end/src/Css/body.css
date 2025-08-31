@@ -22,7 +22,7 @@
 .maindiv {
  
   width: 100%; /* Ensure it spans the full width of its grid area */
-  height: 120vh;
+  height: 80vh;
   /* max-height: fit-content; */
   display: flex; 
   flex-direction: column; /* Stack content vertically within maindiv */

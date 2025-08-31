@@ -5,7 +5,7 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 const Login = () => {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
-    const [error, seterror] = useState(false); // To handle form errors
+   
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -16,7 +16,7 @@ const Login = () => {
     const handlechange = useCallback(async () => {
         // Basic validation
         if (!email || !password) {
-            seterror(true);
+           
             window.alert("Both email and password are required.");
             return;
         }
@@ -70,7 +70,7 @@ const Login = () => {
                 onChange={change} 
                 value={email} 
             />
-            {error && !email && <span className="invalidinput">Email is required</span>}
+           
 
             <input 
                 className='loginh2' 
@@ -79,7 +79,7 @@ const Login = () => {
                 onChange={changep} 
                 value={password} 
             />
-            {error && !password && <span className="invalidinput">Password is required</span>}
+           
 
             <button 
                 className="loginbutton" 
