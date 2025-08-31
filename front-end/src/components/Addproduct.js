@@ -38,7 +38,7 @@ const Addproduct = () => {
                 return;
             }
 
-            const API_URL = process.env.REACT_APP_API_URL || "http://localhost:9000";
+            const API_URL = process.env.REACT_APP_API_URL;
 
             const response = await fetch(`${API_URL}/add-product`, {
                 method: "POST",
