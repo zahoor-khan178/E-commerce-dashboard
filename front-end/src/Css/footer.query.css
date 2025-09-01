@@ -144,13 +144,14 @@ width: 90vw;
  .middlediv>div>p{
 
   text-align: center;
+  font-size: 2vw;
 
   
 }
 
 .hedingdiv{
 
-    font-size: 6vw;
+    font-size: 3vw;
 }
 
 }

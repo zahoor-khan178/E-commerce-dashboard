@@ -2,11 +2,14 @@
 
 .product-table{
 
-    width: 90vw;
-    height: fit-content;
+   height: fit-content;
+    padding: 10vh 0vh;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border: 2px solid red; */
+   
   
 }
   
@@ -34,7 +37,7 @@
 
 #search-box{
   width: 30vw;
-  height: 5vh;
+  height: 5vw;
   border-radius: 5px;
   border: 1px solid black;
   padding-left: 10px;
@@ -96,9 +99,11 @@
   gap: 0.5vw;
   border-left: none;
   border-top: none;
+  /* padding: 3vw 0; */
   
   
 }
+
 
 
 
@@ -119,54 +124,8 @@
 
 @media screen and (min-width:1441px){
 
-  .product-table{
 
-    
-    padding: 0;
-  }
-
-    .th-cell{
-
-        font-size: 1.5vw;
-        text-align: center;
-        padding: 1vw;
-
-    }
-.td-cell{
-
-    font-size: 1.5vw;
-    text-align: center;
-    padding: 1vw;
-    
-}
-
-.delete{
-
-        font-size: 1vw;
-       padding: 0.5vw;
-}
-
-.update-button-style{
-
-       font-size: 1vw;
-       padding: 0.5vw;
-}
-
-#search-box{
-
-    width: 30vw;
-    font-size: 1vw;
-    height: 6vh;
-    text-align: center;
-     background-color: #f8f9fa;
-}
-
-.product-table{
-
-    padding: 30vh 0;
-}
-}
-@media screen and (max-width:1440px){
+ 
 
 
      .th-cell{
@@ -199,14 +158,108 @@
 #search-box{
 
     width: 60vw;
+    height:3vw;
+    font-size:1.2vw ;
     
     
 }
 
-.product-table{
+
+}
+@media screen and (max-width:1440px){
+
+
+ 
+
+
+     .th-cell{
+
+        font-size: 1.3vw;
+        text-align: center;
+        padding: 2vh 4vw;
+
+    }
+.td-cell{
+
+    font-size: 1.3vw;
+    text-align: center;
+   padding: 2vh 4vw;
+    
+}
+
+.delete{
+
+        font-size: 1vw;
+       padding: 0.5vw;
+}
+
+.update-button-style{
+
+       font-size: 1vw;
+       padding: 0.5vw;
+}
+
+#search-box{
+
+    width: 60vw;
+    height:3vw;
+    font-size:1.2vw ;
+    
+    
+}
+
+
+}
+
+
+
+@media screen and (max-width:768px){
+
+
+  .product-table{
+
+  
+  }
+
+
+     .th-cell{
+
+        font-size: 2vw;
+        text-align: center;
+        padding: 2vh 4vw;
+
+    }
+.td-cell{
+
+    font-size: 2vw;
+    text-align: center;
+   padding: 2vh 4vw;
+    
+}
+
+.delete{
+
+        font-size: 1.8vw;
+       padding: 0.5vw;
+}
+
+.update-button-style{
+
+       font-size: 1.8vw;
+       padding: 0.5vw;
+}
+
+#search-box{
+
+    width: 60vw;
+    
+    
+}
+
+/* .product-table{
 
     padding: 30vh 0;
-}
+} */
 }
 @media screen and (max-width:450px)
 {
@@ -239,11 +292,14 @@
 
 #search-box{
 
-    width: 60vw;
+    width: 70vw;
+    font-size: 3vw;
+    height: 5vw;
 }
 
-.product-table{
 
-    padding: 30vh 0;
+
+.button-cell{
+  padding: 2.5vw 0;
 }
 }

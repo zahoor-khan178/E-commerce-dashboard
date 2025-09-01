@@ -22,8 +22,8 @@
 .maindiv {
  
   width: 100%; /* Ensure it spans the full width of its grid area */
-  height: 80vh;
-  /* max-height: fit-content; */
+  min-height: 80vh;
+  max-height: fit-content;
   display: flex; 
   flex-direction: column; /* Stack content vertically within maindiv */
   align-items: center; /* Center content horizontally within maindiv */
@@ -31,7 +31,7 @@
   /* background-color: green; */
   overflow-y: auto; /* Add scrollbar if content exceeds main area height */
   /* padding: 6vh 0 ; */
-  padding: 0;
+  /* padding: 5vh 0vh; */
   
 }
 

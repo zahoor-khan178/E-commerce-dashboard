@@ -200,7 +200,7 @@
   @media screen and (max-width:450px)
   {
      .productcomp{
-      height: 100vh;
+      height: 70vh;
       width: 90vw;
       justify-content: center;
       align-items: center;
@@ -208,7 +208,7 @@
       
       /* background-color: aqua; */
       border-radius: 10px;
-      gap: 5vh;
+      gap: 3vh;
       padding: 0;
       margin: 0;
      }
@@ -236,10 +236,11 @@
       color: white;
       background-color: brown;
       width: 80%;
-      height: 13vh;
+      height: 15vw;
       text-align: center;
       align-content: center;
          font-size: 3vw;
+         margin-bottom:8vw ;
     }
 
      .invalidinput{
