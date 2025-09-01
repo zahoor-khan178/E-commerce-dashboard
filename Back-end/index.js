@@ -8,7 +8,18 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+
+const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
+
+const corsOptions = {
+  origin: allowedOrigin,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+
 
 const jwtKey = process.env.JWT_SECRET || "fallback-secret"; // from .env
 
