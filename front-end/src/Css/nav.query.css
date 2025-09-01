@@ -122,11 +122,13 @@ height: 100%; */
          flex-direction: row;
          justify-content: flex-start;
          /* background-color: green; */
-         width: 100%;
+         width: 110vw;
          gap: 5vw;
          font-size: 0.4vw;
          padding-left: 2vw;
          background-color: brown;
+         /* box-sizing: border-box; */
+         /* padding: 0; */
 
     }
 
