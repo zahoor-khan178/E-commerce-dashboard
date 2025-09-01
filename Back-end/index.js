@@ -10,14 +10,7 @@ const app = express();
 app.use(express.json());
 
 
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
-
-const corsOptions = {
-  origin: allowedOrigin,
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 
