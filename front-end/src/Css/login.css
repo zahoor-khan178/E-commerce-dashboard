@@ -247,7 +247,7 @@
         border-radius: 15px;
     }
 
-    .logheadign h2 {
+    .logheadign  {
         font-size: 5vw; /* Adjust heading size */
     }
 
@@ -259,18 +259,11 @@
         /* padding: 0.7rem 0.8rem; */
         width: 80vw; 
     }
-    /* .loginh1::placeholder,
-.loginh2::placeholder{
-    color: brown;
-} */
+  
 
     #account-link {
         font-size: 4vw; /* Adjust link text size */
     }
 
-    .invalidinput{
-
-        margin-top: 8vw;
-        font-size: 3vw;
-            }
+  
 }
