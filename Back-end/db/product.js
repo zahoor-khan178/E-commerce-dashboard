@@ -35,6 +35,6 @@ company:{
 
 const product= mongoose.model('product', productschema);
 
-console.log('schema defined successfuly');
+console.log('product schema defined successfuly');
 
 module.exports= product;

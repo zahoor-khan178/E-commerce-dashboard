@@ -22,6 +22,6 @@ password:{
 
 const user= mongoose.model('user',userschema);
 
-console.log('schema defined successfuly');
+console.log('user schema defined successfuly');
 
 module.exports= user;
