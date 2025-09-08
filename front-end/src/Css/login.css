@@ -191,6 +191,48 @@
             }
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+    .logindiv {
+        /* padding: 1.5rem;  */
+        border-radius: 0; /* Remove border-radius on very small screens for full width effect */
+        box-shadow: none; /* Remove shadow on very small screens for cleaner look */
+        max-width: none;
+        /* height: 90vh; */
+        padding: 2vh 3vw;
+         border: 2px solid black; 
+        width: fit-content; 
+        border-radius: 15px;
+    }
+
+    .logheadign h2 {
+        font-size: 3vw; /* Adjust heading size */
+    }
+
+    .loginh1,
+    .loginh2,
+    .loginbutton {
+        font-size: 2vw; /* Slightly smaller text for inputs and buttons */
+        height: 4.5vw; /* Adjust height */
+        /* padding: 0.7rem 0.8rem; */
+        width: 40vw; 
+    }
+    /* .loginh1::placeholder,
+.loginh2::placeholder{
+    color: brown;
+} */
+
+    #account-link {
+        font-size: 2vw; /* Adjust link text size */
+    }
+
+    .invalidinput{
+
+        margin-top: 3vw;
+        font-size: 1vw;
+            }
+}
+
+
 @media (max-width: 768px) and (min-width: 451px) {
     .logindiv {
         /* padding: 1.5rem;  */
@@ -256,7 +298,7 @@
     .loginbutton {
         font-size: 4vw; /* Slightly smaller text for inputs and buttons */
         height: 15vw; /* Adjust height */
-        /* padding: 0.7rem 0.8rem; */
+    
         width: 80vw; 
     }
   

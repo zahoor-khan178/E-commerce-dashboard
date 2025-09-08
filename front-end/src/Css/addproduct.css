@@ -1,253 +1,346 @@
+.productcomp {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+
+  row-gap: 30px;
+
+  width: 500px;
+  align-items: center;
 
 
-.productcomp{
+  color: brown;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: relative;
+  background-color: white;
+  /* box-shadow: 0 0 5px 2px; */
 
-    row-gap: 30px;
-    
-    width: 500px;
-    align-items: center;
-   
-    
-    color: brown;
-  
-    background-color: white;
-    /* box-shadow: 0 0 5px 2px; */
-  
-    padding: 5vh 0;
-  
-    z-index:10;
-  
-  
-  }
-  
-  .productinput{
-  
-    display: flex;
-    position: relative;
-    width: 300px;
-    text-align: center;
-    height: 20px;
-    color: brown;
-    outline: none;
-    border-color: brown;
-  
-   
-  
-  
-  }
-  
-  .addproductbutton{
-  
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    /* top: 10px; */
-    /* right: 110px; */
-    color:white;
-    background-color: rgb(179, 23, 23);
-  
-    border: none;
-    height: 30px;
+  padding: 5vh 0;
+
+  z-index: 10;
+
+
+}
+
+.productinput {
+
+  display: flex;
+  position: relative;
+  width: 300px;
+  text-align: center;
+  height: 20px;
+  color: brown;
+  outline: none;
+  border-color: brown;
+
+
+
+
+}
+
+.addproductbutton {
+
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  /* top: 10px; */
+  /* right: 110px; */
+  color: white;
+  background-color: rgb(179, 23, 23);
+
+  border: none;
+  height: 30px;
   /* padding: 1vw; */
   align-items: center;
-  
+
+}
+
+.producth {
+
+  display: block;
+  position: relative;
+  /* right: 100px; */
+  top: 10px;
+  color: brown;
+
+}
+
+
+
+.productinput::placeholder {
+  color: brown;
+  /* Set the placeholder color to brown */
+  opacity: 1;
+  /* Make sure the opacity is set to 1 for full visibility */
+}
+
+.invalidinput {
+
+  display: absolute;
+  position: relative;
+  font-size: small;
+  width: max-content;
+  top: -25px;
+  right: 105px;
+  color: red;
+  height: 0px;
+
+}
+
+
+
+
+@media screen and (min-width:2561px) {
+  .productcomp {
+
+    height: fit-content;
+    width: fit-content;
+
+    align-items: flex-start;
+    padding: 4vh 8vw;
+    gap: 5vh;
+    box-shadow: 0 0 25px 9px brown;
   }
-  
-  .producth{
-  
-    display: block;
-    position: relative;
-    /* right: 100px; */
-    top: 10px;
-    color: brown;
-    
+
+  .addproductbutton {
+
+    justify-content: center;
+    width: 30%;
+    height: 6vh;
+    /* border-radius: 10px; */
+
   }
-  
-  
-  
-  .productinput::placeholder {
-    color: brown; /* Set the placeholder color to brown */
-    opacity: 1; /* Make sure the opacity is set to 1 for full visibility */
-  }
-  
-  .invalidinput{
-  
-    display: absolute;
-    position: relative;
-    font-size: small;
-    width: max-content;
+
+  .invalidinput {
+
+    font-size: 1vw;
     top: -25px;
-    right: 105px;
-    color: red;
-    height: 0px;
-   
+    /* background-color: green; */
+    height: fit-content;
+    right: -10px;
   }
 
-/* 
-  @media screen and (max-width:1024px){
-.productcomp{
+  .productinput {
 
-  height: 100%;
+    width: 30vw;
+    height: 5vh;
+    font-size: 1vw;
+  }
+
+  .addproductbutton {
+
+    font-size: 1vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+
+  .producth {
+
+    font-size: 1.5vw;
+  }
+
 }
 
-  } */
-  @media screen and (min-width:1441px){
-    .productcomp{
 
-  height: fit-content;
-  width: fit-content;
+@media screen and (max-width:2560px) {
+  .productcomp {
 
-  align-items: flex-start;
-  padding: 4vh 8vw;
-  gap: 5vh;
-      box-shadow: 0 0 25px 9px brown;
-}
+    height: fit-content;
+    width: fit-content;
 
-.addproductbutton{
-    
+    align-items: flex-start;
+    padding: 4vh 8vw;
+    gap: 5vh;
+    box-shadow: 0 0 25px 9px brown;
+  }
+
+  .addproductbutton {
+
     justify-content: center;
-      width: 30%;
-      height: 6vh;
-      /* border-radius: 10px; */
-      
-    }
-
-      .invalidinput{
-
-      font-size: 1vw;
-      top: -25px;
-      /* background-color: green; */
-      height: fit-content;
-      right: -10px;
-     }
-
-     .productinput{
-
-      width: 30vw;
-      height: 5vh;
-      font-size: 1vw;
-     }
-
-     .addproductbutton{
-
-      font-size: 1vw;
-      padding: 1vw;
-      height: fit-content;
-     }
-
-     .producth{
-
-      font-size: 1.5vw;
-     }
+    width: 30%;
+    height: 6vh;
+    /* border-radius: 10px; */
 
   }
-  @media screen and (max-width:1440px){
-.productcomp{
 
-  box-shadow: 0 0 5px 2px brown;
-  height: fit-content;
-  width: fit-content;
+  .invalidinput {
 
-  align-items: flex-start;
-  padding: 3vh 8vw;
-  gap: 5vh;
+    font-size: 1vw;
+    top: -25px;
+    /* background-color: green; */
+    height: fit-content;
+    right: -10px;
+  }
+
+  .productinput {
+
+    width: 30vw;
+    height: 5vh;
+    font-size: 1vw;
+  }
+
+  .addproductbutton {
+
+    font-size: 1vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+
+  .producth {
+
+    font-size: 1.5vw;
+  }
+
 }
 
-.addproductbutton{
-    
+@media screen and (max-width:1440px) {
+  .productcomp {
+
+    box-shadow: 0 0 5px 2px brown;
+    height: fit-content;
+    width: fit-content;
+
+    align-items: flex-start;
+    padding: 3vh 8vw;
+    gap: 5vh;
+  }
+
+  .addproductbutton {
+
     justify-content: center;
-      width: 30%;
-      height: 6vh;
-      /* border-radius: 10px; */
-      
-    }
-
-      .invalidinput{
-
-      font-size: 1vw;
-      top: -25px;
-      /* background-color: green; */
-      height: fit-content;
-      right: -10px;
-     }
-
-     .productinput{
-
-      width: 30vw;
-      height: 4vh;
-      font-size: 1vw;
-     }
-
-     .addproductbutton{
-
-      font-size: 1vw;
-      padding: 1vw;
-      height: fit-content;
-     }
-
-     .producth{
-
-      font-size: 1.5vw;
-     }
-
+    width: 30%;
+    height: 6vh;
+    /* border-radius: 10px; */
 
   }
-  @media screen and (max-width:450px)
-  {
-     .productcomp{
-      height: 70vh;
-      width: 90vw;
-      justify-content: center;
-      align-items: center;
-      /* border: 1px solid black; */
-      
-      /* background-color: aqua; */
-      border-radius: 10px;
-      gap: 3vh;
-      padding: 0;
-      margin: 0;
-     }
 
-   .productinput{
+  .invalidinput {
+
+    font-size: 1vw;
+    top: -25px;
+    /* background-color: green; */
+    height: fit-content;
+    right: -10px;
+  }
+
+  .productinput {
+
+    width: 30vw;
+    height: 2vw;
+    font-size: 1vw;
+  }
+
+  .addproductbutton {
+
+    font-size: 1vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+
+  .producth {
+
+    font-size: 1.5vw;
+  }
+
+
+}
+
+@media screen and (max-width:1024px) and (min-width:769px) {
+  .productinput {
+
+    width: 40vw;
+    height: 5vh;
+    font-size: 1.5vw;
+  }
+
+  .addproductbutton {
+
+
+    width: 35%;
+    height: 7vh;
+
+    font-size: 1.5vw;
+  }
+
+  .producth {
+
+    font-size: 2vw;
+  }
+
+}
+
+
+
+@media screen and (max-width:768px) {
+  .productinput {
+
+    width: 40vw;
+    height: 4vh;
+    font-size: 1.5vw;
+  }
+
+  .addproductbutton {
+
+
+    width: 35%;
+    height: 7vh;
+
+    font-size: 1.5vw;
+  }
+
+  .producth {
+
+    font-size: 2vw;
+  }
+
+}
+
+
+@media screen and (max-width:480px) {
+  .productcomp {
+    height: 70vh;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+    /* background-color: aqua; */
+    border-radius: 10px;
+    gap: 3vh;
+    padding: 4vw 0;
+    margin: 0;
+  }
+
+  .productinput {
 
     width: 80%;
-    height: 5vh;
+    height: 7vw;
     position: relative;
     font-size: 3vw;
-    
+
   }
-  
-  .addproductbutton{
-    
+
+  .addproductbutton {
+
     justify-content: center;
-      width: 80%;
-      height: 7vh;
-      border-radius: 10px;
-        font-size: 3vw;
-    }
-
-    .producth{
-
-      color: white;
-      background-color: brown;
-      width: 80%;
-      height: 15vw;
-      text-align: center;
-      align-content: center;
-         font-size: 3vw;
-         margin-bottom:8vw ;
-    }
-
-     .invalidinput{
-
-      font-size: 3vw;
-      top: -40px;
-      /* background-color: green; */
-      height: 10px;
-     }
+    width: 80%;
+    height: 7vh;
+    border-radius: 10px;
+    font-size: 3vw;
   }
+
+  .producth {
+
+    color: white;
+    background-color: brown;
+    width: 80%;
+    height: 15vw;
+    text-align: center;
+    align-content: center;
+    font-size: 3vw;
+    margin-bottom: 8vw;
+  }
+
+
+}

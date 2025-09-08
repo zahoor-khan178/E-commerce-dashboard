@@ -30,7 +30,7 @@
   justify-content: center; /* Align content to the top within maindiv */
   /* background-color: green; */
   overflow-x: hidden;
-  padding:  0 ;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
  
@@ -38,12 +38,12 @@
   
 }
 
-/* @media screen and (min-width:1441px)
+@media screen and (max-width:1024px) and (min-width:0px)
 {
 
    .maindiv {
 
-    min-height: 120vh;
+    min-height: 100vh;
    
    }
-} */
+}

@@ -124,13 +124,13 @@
 
 @media (max-width:1024px) {
     .form-input, .signup-button{
-        width: 30vw;
+        width: 40vw;
         height: 2vw;
-        font-size: 1.5vw;
+        font-size: 2vw;
      }
       .signup-form{
         width: fit-content;
-        border-radius: 20px;
+        border-radius: 10px;
       }
       .signup-button{
         height: 10vh;
