@@ -25,26 +25,61 @@ const jwtKey = process.env.JWT_SECRET || "fallback-secret"; // from .env
 
 app.post('/register', async (req, resp) => {
   try {
+    // Extract email & password from request body
+    const { email, password } = req.body;
+
+    // Check if email already exists
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      return resp
+        .status(400)
+        .send({ message: "Email already exists, please use a different email." });
+    }
+
+    // (Optional) Check if password already exists
+    const existingPassword = await User.findOne({ password });
+    if (existingPassword) {
+      return resp
+        .status(400)
+        .send({ message: "Password already exists, please use a different password." });
+    }
+
+    // Create new user
     const user = new User(req.body);
     let result = await user.save();
     result = result.toObject();
     delete result.password;
 
+    // Sign JWT
     jwt.sign({ result }, jwtKey, { expiresIn: "1h" }, (err, token) => {
       if (err) {
-        resp.status(500).send('Problem in token');
+        resp.status(500).send("Problem in token");
       } else {
         resp.send({ result, auth: token });
       }
     });
   } catch (error) {
-    console.log('Error in signup API:', error);
-    resp.status(500).send('Internal server error');
+    console.log("Error in signup API:", error);
+    resp.status(500).send("Internal server error");
   }
 });
 
+
 app.post('/login', async (req, resp) => {
   try {
+
+     const { email, password } = req.body;
+
+  
+      const existingUser = await User.findOne({ email });
+      const existingPassword = await User.findOne({ password });
+
+      
+      if (!existingUser || !existingPassword) {
+         return resp.status(400).send({ message: "Incorrect Email or Password." });
+      }
+
+
     if (req.body.email && req.body.password) {
       const user = await User.findOne(req.body).select('-password');
       if (user) {
@@ -152,7 +187,7 @@ const PORT = process.env.PORT || 9000;
 
 // Only listen when running locally, not when importing (Vercel uses exports)
 if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+  app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
 }
 
 module.exports = app; // For Vercel

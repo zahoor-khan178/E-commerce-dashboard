@@ -12,12 +12,13 @@ const Signup = () => {
     const API_URL = process.env.REACT_APP_API_URL;
 
     const handleSignup = async () => {
-        if (!name || !email || !password) {
-            alert('All fields are required.');
-            return;
-        }
-
+        
         try {
+            if (!name || !email || !password) {
+                alert('All fields are required.');
+                return;
+            }
+
             let response = await fetch(`${API_URL}/register`, {
                 method: 'POST',
                 body: JSON.stringify({ name, email, password }),
@@ -26,9 +27,15 @@ const Signup = () => {
 
             let result = await response.json();
 
+            if(result.message){
+                alert(result.message);
+                return;
+            }
+
             if (result.auth) {
                 localStorage.setItem('user', JSON.stringify(result.result));
                 localStorage.setItem('token', JSON.stringify(result.auth));
+                    alert('Registration successful!');
                 navigate("/");
             } else {
                 alert(result.message || 'Registration failed. Please try again.');
@@ -59,7 +66,7 @@ const Signup = () => {
                         className="form-input"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
-                        required
+                        // required
                     />
                 </div>
 
@@ -72,7 +79,7 @@ const Signup = () => {
                         className="form-input"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        required
+                        // required
                     />
                 </div>
 
@@ -85,7 +92,7 @@ const Signup = () => {
                         className="form-input"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        required
+                        // required
                     />
                 </div>
 

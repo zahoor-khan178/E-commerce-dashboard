@@ -41,6 +41,11 @@ const Login = () => {
 
             const result = await response.json();
 
+            if(result.message){
+                alert(result.message);
+                return;
+            }
+
             if (result.auth) {
                 // Save user and token to localStorage
                 localStorage.setItem('user', JSON.stringify(result.user));
