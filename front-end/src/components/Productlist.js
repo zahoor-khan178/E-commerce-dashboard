@@ -111,6 +111,7 @@ const Productlist = () => {
 
             result = await result.json();
             if (result) {
+                setProducts(prev => prev.filter(p => p._id !== id));
                 getProducts();
             }
         } catch (error) {
