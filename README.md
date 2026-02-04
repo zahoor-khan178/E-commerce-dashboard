@@ -38,3 +38,5 @@ You can try the live application here:
 
 
 https://github.com/user-attachments/assets/29305cfc-0bf3-44cc-a949-4a72e0439751
+
+ ![image alt](https://github.com/zahoor-khan178/E-commerce-dashboard/blob/2d8d165ec9c7c6545a23b8f3b6a4f24482ca8706/E-commerce%20demo%20images.png)
