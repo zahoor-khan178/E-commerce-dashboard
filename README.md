@@ -35,3 +35,6 @@ To get started with the project, follow these steps:
 
 You can try the live application here:  
 👉 [Live Demo Link](https://e-commerce-dashboard-cen9.vercel.app)
+
+
+https://github.com/user-attachments/assets/29305cfc-0bf3-44cc-a949-4a72e0439751
