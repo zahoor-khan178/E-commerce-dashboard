@@ -26,7 +26,7 @@ const jwtKey = process.env.JWT_SECRET || "fallback-secret"; // from .env
 app.post('/register', async (req, resp) => {
   try {
     // Extract email & password from request body
-    const { email, password } = req.body;
+    const { email} = req.body;
 
     // Check if email already exists
     const existingEmail = await User.findOne({ email });
@@ -36,13 +36,7 @@ app.post('/register', async (req, resp) => {
         .send({ message: "Email already exists, please use a different email." });
     }
 
-    // (Optional) Check if password already exists
-    const existingPassword = await User.findOne({ password });
-    if (existingPassword) {
-      return resp
-        .status(400)
-        .send({ message: "Password already exists, please use a different password." });
-    }
+    
 
     // Create new user
     const user = new User(req.body);
