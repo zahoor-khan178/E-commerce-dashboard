@@ -149,7 +149,7 @@ app.post('/add-product', verifyToken, async (req, resp) => {
 });
 
 app.get('/product', verifyToken, async (req, resp) => {
-  const products = await Product.find();
+  const products = await Product.find({ userId: req.user._id });
   if (products.length > 0) {
     resp.send(products);
   } else {
@@ -202,12 +202,14 @@ function verifyToken(req, resp, next) {
   let token = req.headers['authorization'];
   if (token) {
     token = token.split(' ')[1];
-    jwt.verify(token, jwtKey, (err, valid) => {
+    jwt.verify(token, jwtKey, (err, decoded) => {
       if (err) {
-        resp.status(401).send({ message: "Your session has expired. Please login again." });
-      } else {
-        next();
-      }
+         return resp.status(401).send({ message: "Your session has expired. Please login again." });
+      } 
+
+      req.user = decoded.result;
+      next();
+      
     });
   } else {
     resp.status(403).send({ message: "Please add token with header" });
