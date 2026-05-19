@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 require('dotenv').config();  // Load .env file
 require('./db/config');
 const User = require('./db/userschema');
@@ -12,8 +13,8 @@ app.use(express.json());
 
 app.use(cors({
   origin: [process.env.FRONTEND_URL, 'http://localhost:3000'].filter(Boolean),
-  allowedHeaders: ['Content-Type','Authorization'],
-  methods: ['GET','POST','PUT','DELETE','OPTIONS']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 
@@ -23,10 +24,13 @@ const jwtKey = process.env.JWT_SECRET || "fallback-secret"; // from .env
 
 // ================= AUTH ROUTES ================= //
 
+
+//  signup API 
+
 app.post('/register', async (req, resp) => {
   try {
-    // Extract email & password from request body
-    const { email} = req.body;
+    // Extract name, email & password from request body
+    const { name, email, password } = req.body;
 
     // Check if email already exists
     const existingEmail = await User.findOne({ email });
@@ -36,10 +40,16 @@ app.post('/register', async (req, resp) => {
         .send({ message: "Email already exists, please use a different email." });
     }
 
-    
+
 
     // Create new user
-    const user = new User(req.body);
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    const user = new User({
+      name,
+      email,
+      password: hashedPassword
+    });
     let result = await user.save();
     result = result.toObject();
     delete result.password;
@@ -59,40 +69,70 @@ app.post('/register', async (req, resp) => {
 });
 
 
+// login API
+
 app.post('/login', async (req, resp) => {
+
   try {
 
-     const { email, password } = req.body;
+    const { email, password } = req.body;
 
-  
-      const existingUser = await User.findOne({ email });
-      const existingPassword = await User.findOne({ password });
+    // Find user by email
+    const existingUser = await User.findOne({ email });
 
-      
-      if (!existingUser || !existingPassword) {
-         return resp.status(400).send({ message: "Incorrect Email or Password." });
-      }
-
-
-    if (req.body.email && req.body.password) {
-      const user = await User.findOne(req.body).select('-password');
-      if (user) {
-        jwt.sign({ user }, jwtKey, { expiresIn: "1h" }, (err, token) => {
-          if (err) {
-            resp.status(500).send('Something went wrong');
-          } else {
-            resp.send({ user, auth: token });
-          }
-        });
-      } else {
-        resp.status(404).send('No user found');
-      }
-    } else {
-      resp.status(400).send('Email and password required');
+    // Check if user exists
+    if (!existingUser) {
+      return resp.status(400).send({
+        message: "Incorrect Email or Password."
+      });
     }
-  } catch (err) {
-    console.log('Error in login API:', err);
-    resp.status(500).send('Internal server error');
+
+    // Compare entered password with hashed password
+    const isMatch = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
+
+    // If password does not match
+    if (!isMatch) {
+      return resp.status(400).send({
+        message: "Incorrect Email or Password."
+      });
+    }
+
+    // Remove password from response
+    let result = existingUser.toObject();
+    delete result.password;
+
+    // Generate JWT
+    jwt.sign(
+      { result },
+      jwtKey,
+      { expiresIn: "1h" },
+      (err, token) => {
+
+        if (err) {
+          resp.status(500).send({
+            message: "Problem in token"
+          });
+
+        } else {
+
+          resp.send({
+            result,
+            auth: token
+          });
+        }
+      }
+    );
+
+  } catch (error) {
+
+    console.log(error);
+
+    resp.status(500).send({
+      message: "Internal Server Error"
+    });
   }
 });
 
