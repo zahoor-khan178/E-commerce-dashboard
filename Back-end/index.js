@@ -140,7 +140,16 @@ app.post('/login', async (req, resp) => {
 
 app.post('/add-product', verifyToken, async (req, resp) => {
   try {
-    const newProduct = new Product(req.body);
+    const { name, price, category, company } = req.body;
+    const newProduct = new Product({
+
+      name,
+      price,
+      category,
+      company,
+   // secure: taken from token, not frontend
+      userId: req.user._id
+    });
     const result = await newProduct.save();
     resp.send(result);
   } catch (err) {

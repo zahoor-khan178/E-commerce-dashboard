@@ -40,7 +40,6 @@ const Addproduct = () => {
                     price,
                     category,
                     company,
-                    userid: user._id
                 }),
                 headers: {
                     "Content-Type": "application/json",
