@@ -98,7 +98,7 @@ const Signup = () => {
                         className="form-input"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        pattern=".{8}"   //  exactly 8 characters
+                        pattern=".{6,}"   //  at least 6 characters long
                         title="Password must be exactly 8 characters long"
                     />
                 </div>
