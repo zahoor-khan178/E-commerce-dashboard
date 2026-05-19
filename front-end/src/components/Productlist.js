@@ -223,7 +223,7 @@ const Productlist = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="6" className="no-products-message">No products found. Please add some or check your search.</td>
+                                <td colSpan="6" className="no-products-message">No products found.</td>
                             </tr>
                         )
                     )}

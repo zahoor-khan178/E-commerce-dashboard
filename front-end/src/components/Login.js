@@ -48,7 +48,7 @@ const Login = () => {
 
             if (result.auth) {
                 // Save user and token to localStorage
-                localStorage.setItem('user', JSON.stringify(result.user));
+                localStorage.setItem('user', JSON.stringify(result.result));
                 localStorage.setItem('token', JSON.stringify(result.auth));
 
                 // Navigate back to previous page or home
