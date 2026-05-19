@@ -19,9 +19,9 @@ const Signup = () => {
                 return;
             }
 
-            if(password.length !== 8)
+            if(password.length < 6)
             {
-                alert('Password must be exactly 8 characters long.');
+                alert('Password must be at least 6 characters long.');
                 return;
             }
 
@@ -99,7 +99,7 @@ const Signup = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                         pattern=".{6,}"   //  at least 6 characters long
-                        title="Password must be exactly 8 characters long"
+                        title="Password must be at least 6 characters long"
                     />
                 </div>
 
